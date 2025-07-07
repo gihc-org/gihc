@@ -1,0 +1,14 @@
+= Global Institude of Hybrid Cleverness
+:doctype: book
+
+
+image::https://bafybeicrkyi5w7nhl3y5qqg6ypnd62vuqorpotv6k5xfuy2ryuhlxf2arm.ipfs.w3s.link/logo.png[]
+
+include::formål.adoc[]
+
+include::beskrivelse[]
+
+Logo af Eva & Peter Nygaard
+
+
+
