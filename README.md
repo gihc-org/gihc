@@ -1,2 +1,15 @@
-# gihc
+# GIHC
 Global Institute of Hybrid Cleverness
+
+## Formål
+Fortsætte 🌐 uden nævneværdige ændringer.
+
+Lidt grønnere, lidt mere crypto
+
+## Beskrivelse
+Vi er en gruppe af løst forbindne ildsjæle, som forbereder os på det
+næstværste, at alting brænder sammen (infrastruktur).  Vi træner til
+at yde førstehjælp. Fysisk og digitalt. vi arbejder med solceller,
+varmepumper og hacker i ordrets oprindelige gode betydning. Derudover
+øver vi spejder og gymnastik aktiviteter.
+
