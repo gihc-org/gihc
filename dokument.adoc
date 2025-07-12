@@ -6,7 +6,9 @@ image::https://bafybeicrkyi5w7nhl3y5qqg6ypnd62vuqorpotv6k5xfuy2ryuhlxf2arm.ipfs.
 
 include::formål.adoc[]
 
-include::beskrivelse[]
+include::beskrivelse.adoc[]
+
+== Tilskrivning
 
 Logo af Eva & Peter Nygaard
 
