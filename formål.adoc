@@ -1,6 +1,40 @@
 = Formål
 
-Fortsætte 🌐 uden nævneværdige ændringer.
+GIHC — Global Institute of Hybrid Cleverness — er en forening der gør modstandsdygtighed sjov.
 
-Lidt grønnere, lidt mere crypto
+Vi forbereder os på det næstværste — at infrastrukturen brænder sammen — ved at lege, øve og bygge sammen.
+Børn og voksne. Hænder og hoveder. Solceller og sammenhold.
 
+== Hvad vi tror på
+
+Beredskab behøver ikke være tørt, dystert eller dyrt.
+Det kan være en weekendlejr hvor familier laver mad uden strøm.
+En aften hvor vi lodder vores eget mesh-netværk.
+En leg hvor børnene lærer at lægge forbinding mens de griner.
+
+Vi henter inspiration fra:
+
+* *Spejderbevægelsen* — leg, læring og selvstændighed i naturen
+* *Hackerkulturen* — i ordets oprindelige gode betydning: nysgerrighed, åbenhed, gør-det-selv
+* *Førstehjælpstraditioner* — fysisk og digital
+* *Den grønne omstilling* — solceller, varmepumper, fermentering, kompost
+* *Kryptografi og decentrale netværk* — selvbestemmelse over data og kommunikation
+
+== Det næstværste
+
+Vi forbereder os ikke på dommedag.
+Vi forbereder os på _det næstværste_: nogle dage uden strøm, en uge uden internet, et halvår med pres på forsyninger.
+Den slags scenarier kan håndteres — hvis man har øvet sig en smule, og hvis man kender sin nabo.
+
+== Lokalt og globalt
+
+Vi starter ét sted, med én flok ildsjæle og deres familier.
+Men identiteten bygges så andre kan starte deres egen GIHC-celle hvor de bor.
+Hybrid Cleverness skal kunne tage sig forskelligt ud i en gård på Nørrebro, en forsamlingshus i Vendsyssel, og en hackerspace i Berlin.
+
+== Kort sagt
+
+* Det skal være sjov at være beredt.
+* Vi lærer ved at lege.
+* Vi forbereder os sammen — på tværs af alder.
+* Lidt grønnere, lidt mere crypto.

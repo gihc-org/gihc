@@ -1,0 +1,45 @@
+= Manifest
+
+== Vi tror på
+
+* At det skal være sjov at være beredt.
+* At leg er den hurtigste vej til læring.
+* At børn og voksne lærer bedst sammen.
+* At man kan øve modstandskraft uden at være dyster.
+
+== Vi forbereder os på
+
+* Det næstværste — ikke på dommedag.
+* Nogle dage uden strøm.
+* En uge uden internet.
+* Et halvår med pres på forsyninger.
+* At kende vores naboer før vi får brug for dem.
+
+== Vi øver os i
+
+* At lodde, bygge, reparere.
+* At lægge forbinding, finde vej, lave bål.
+* At kommunikere når nettet falder.
+* At dyrke, fermentere, gemme, dele.
+* At spille os klogere.
+
+== Hybrid Cleverness
+
+Gammel viden møder nye værktøjer. +
+Hænder møder hoveder. +
+Solceller møder snilde. +
+Spejder møder hackerspace.
+
+== Vi står på skuldrene af
+
+* Spejderbevægelsen.
+* Hackerkulturen — i ordets oprindelige gode betydning.
+* Den frivillige beredskabstradition.
+* Den grønne omstilling.
+* Kryptografien og det decentrale net.
+
+== Kort sagt
+
+Lidt grønnere. +
+Lidt mere crypto. +
+Lidt mere sammen.

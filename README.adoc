@@ -1,4 +1,4 @@
-= Global Institude of Hybrid Cleverness
+= Global Institute of Hybrid Cleverness
 :doctype: book
 
 
@@ -6,9 +6,6 @@ image::https://bafybeicrkyi5w7nhl3y5qqg6ypnd62vuqorpotv6k5xfuy2ryuhlxf2arm.ipfs.
 
 include::formål.adoc[]
 
-include::beskrivelse[]
+include::beskrivelse.adoc[]
 
-Logo af Eva & Peter Nygaard
-
-
-
+include::manifest.adoc[]
