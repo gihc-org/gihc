@@ -2,7 +2,7 @@
 
 Anthropic blokerede for nylig adgangen til deres nyeste model, Fable, for alle ikke-amerikanere. Ikke fordi modellen var dårlig. Men fordi den amerikanske regering sagde det.
 
-Det er ikke et angreb på Anthropic. Det er en påmindelse om noget, vi gerne vil glemme: når vores digitale infrastruktur ejes og kontrolleres af et andet land, er vi gæster i vores eget hus. Adgangen kan lukkes på et regeringsindgreb, uden vi har nogen indflydelse.
+Det er ikke et angreb på Anthropic. Det er en påmindelse om noget, vi gerne vil glemme: når vores digitale infrastruktur ejes og kontrolleres af et andet land, er vi gæster i vores eget hus. Adgangen kan lukkes med et regeringsindgreb, uden vi har nogen indflydelse.
 
 Jeg har læst de seneste analyser om europæisk AI — Draghi-rapporten og diskussionen på Bootstrapping om, at Europa laver AI på USA's præmisser. Pointerne er rigtige: vi mangler skala, billig energi og kapital til at vokse virksomheder til samme størrelse som de amerikanske. Det er ikke noget, jeg vil bagatellisere.
 
