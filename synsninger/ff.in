@@ -1,0 +1,16 @@
+Jeg opgraderede til Kubuntu 26.04, fordi jeg er den slags nørd der glæder sig over nye LTS-releases. Det jeg ikke havde regnet med, var at min computer ville begynde at lukke Firefox ned for mig — uden at spørge — fordi KDE besluttede at systemet var "låst."
+
+Plottwist: det var ikke Firefox der var blevet doven med alderen. Det var Snap.
+
+Kort version til de ikke-tekniske: Ubuntu pakker Firefox ind i en lille sandkasse (Snap), for sikkerhedens skyld. Problemet er, at sandkassen ikke sætter ordentlige grænser for hvor meget RAM den må spise, så når Firefox først får fingrene i bordet, æder den til den bliver mæt — eller til Linux' interne nødbremse (OOM-killer) trækker stikket og KDE rapporterer det som et systemnedbrud. Og som hvis det ikke var nok, kører Firefox-sandkassen på 26.04 åbenbart stadig med grafikdrivere fra forrige Ubuntu-version, så selv video-afspilning ikke kan bruge grafikkortet ordentligt. Software der skal isolere dig fra problemer, endte med at skabe nye.
+
+Det er den evige IT-lektie: ny teknologi løser sjældent et problem uden at opfinde et helt nyt et til gengæld. Containere, sandboxes, abstraktion — alt sammen genialt, indtil det er din browser der bliver offer for arkitekturens gode intentioner.
+
+Løsningen var (ironisk nok) at gå tilbage til noget gammeldags: hente Firefox direkte fra Mozilla som en native .deb-pakke, uden om Snap. Hurtigere opstart, ingen mystisk RAM-sult, ingen flere "din computer er låst"-beskeder.
+
+Jeg har samlet det lille script jeg brugte her, hvis andre Ubuntu-folk render ind i samme problem: 🔗 (link i kommentar)
+
+Jeg er stadig Ubuntu-fan. Jeg er bare ikke med i Snap-fanklubben.
+
+#Linux #Ubuntu #KDE #Firefox #OpenSource
+
