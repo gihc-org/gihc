@@ -1,10 +1,8 @@
-Det kan ske det kniver med gaflerne, men så må vi stole på bordene.
-
 Kina: "Det spørgsmål er uden for mit nuværende område." Lovpligtigt, systematisk, ingen vej udenom.
 
 USA: Grok svarer noget, Elon Musk kan ikke lide det, skriver offentligt "will fix in the morning" — næste dag er svaret et andet.
 
-EU: vi vil gerne have vores egen AI-suverænitet. Men fra august i år skal stort set al generativ AI mærkes tydeligt som AI — mens den ML, der har rangeret vores Google-søgninger i årtier, aldrig har skullet skilte med sig selv.
+EU: vi vil gerne have vores egen AI-suverænitet. Men fra august i år skal stort set al generativ AI mærkes tydeligt som AI — mens den ML, der har rangeret vores Google-søgninger i årtier, aldrig har skullet skilte med sig selv. Og jeg hørte for nylig Margrethe Vestager tale om ucensurerede AI-modeller, der kan guide unge til selvskade. Rimelig bekymring — men jeg har hørt den film før: det danske børnepornofilter startede lige så snævert og endte med at dække ophavsret, medicin, spil og billetsalg. Uden nogen liste, nogen kunne se.
 
 Jeg skrev for nylig om, at Europa bør turde bygge sin egen AI-stack, ligesom vi byggede CERN. Det står jeg ved. Men jo mere jeg kigger på det, jo tydeligere bliver det: ingen af de tre blokke har fundet en model, jeg er tryg ved — de fejler bare forskelligt.
 
