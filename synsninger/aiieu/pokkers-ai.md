@@ -24,6 +24,16 @@ Jeg er ikke modstander af gennemsigtighed. Men grænsen virker vilkårlig. Maski
 
 Det handler ikke om, at Europa mangler penge til det her – dem har vi. Problemet er, at reglen er uklar og besværlig at navigere, særligt for almindelige mennesker og små virksomheder, der ikke har et juridisk team til at fortolke, hvornår og hvordan noget skal mærkes. Store selskaber har ressourcerne til at finde ud af det. Den lokale iværksætter, der bruger AI i sit produkt eller sin markedsføring, står tilbage med en regel, der er svær at gennemskue, og en usikkerhed om, hvornår man reelt overholder den. Vi beder om suverænitet med den ene hånd og gør det uigennemsigtigt at bygge noget selv med den anden.
 
+## Den glidebane, jeg er bange for
+
+Jeg lyttede for nylig til Margrethe Vestager i podcasten "Den perfekte storm", hvor hun taler om, at visse AI-modeller er ucensurerede og kan guide unge mennesker til selvskade. Det er hun selvfølgelig ikke forkert på. Ingen er uenige i, at der skal være værn mod det.
+
+Men det, jeg frygter, har vi allerede set en gang. Det danske børnepornofilter blev oprettet med et snævert, ukontroversielt formål: at blokere for materiale med seksuelt misbrug af børn. Det administreres i praksis af politiet og Red Barnet – uden dommerkendelse, uden offentliggjort liste, uden ekstern kontrol af, hvad der reelt bliver blokeret. Over årene er filteret gradvist blevet udvidet til også at dække ophavsretskrænkelser, ulovligt medicinsalg, spiludbydere og videresalg af billetter – emner der intet har med børnebeskyttelse at gøre. Teleselskaberne fører ikke engang statistik over blokeringerne og offentliggør ikke listen.
+
+Det er præcis den mekanisme, jeg er nervøs for gentager sig med AI. Et filter eller en reguleringsmekanisme, der starter med et formål, ingen kan være uenige i – beskyt børn og unge mod skadeligt AI-indhold – og som derefter, uden nogen synlig demokratisk proces, gradvist udvides til at dække alt muligt andet, som nogen bare ikke bryder sig om. Uden gennemsigtighed om, hvad der reelt filtreres, og uden nogen udefra der kan holde øje med, om grænsen stadig giver mening.
+
+Det gør ikke Vestagers bekymring forkert. Det gør bare, at løsningen skal bygges med gennemsigtighed indbygget fra dag ét – en offentligt tilgængelig begrundelse for hver eneste ting, der filtreres, og en uafhængig instans der kan holde øje med, om formålet stadig holder sig til det, det blev sat i verden for. Ellers ender vi med endnu et system, hvor ingen udefra kan svare på, hvad der egentlig bliver holdt skjult for os, og hvorfor.
+
 ## Så hvad er pointen?
 
 Ikke at de tre situationer er lige slemme – det er de ikke. Kinas model er den eneste, der er systemisk, lovfæstet og lukket for modstand. Men fælles for alle tre er, at ingen af dem giver mig en AI, jeg kan stole på ubetinget: en jeg ved præcis, hvad der er filtreret fra, uden at nogen fortæller mig hvorfor eller af hvem.
@@ -45,4 +55,6 @@ Suverænitet handler ikke kun om, hvor serverne står, eller hvem der ejer infra
 - Senator Ed Markeys brev til AI-selskabers ledere, juli 2025
 - EU-Kommissionen: retningslinjer for gennemsigtighedsforpligtelser under AI-forordningens artikel 50, juli 2026
 - Kromann Reumert: "Nye krav til mærkning af AI-genereret markedsføring"
+- Podcast: "Den perfekte storm" – Anders Morgenthaler interviewer Margrethe Vestager
+- Wikipedia: "Det danske børnepornofilter"; Version2 og IT-Politisk Forening om filterets udvidelse over tid
 
