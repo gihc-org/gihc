@@ -58,8 +58,10 @@ Forventet DNS-opsætning fra Migadu omfatter:
 - tre DKIM CNAME-records
 - én TXT-record til domæneverifikation
 
-DMARC-recorden på `_dmarc` findes allerede med `p=none`. Den bør først strammes
-til `p=quarantine`, når både indgående og udgående mail er verificeret.
+DMARC-recorden på `_dmarc` findes allerede med `p=none`. Scriptet tilføjer
+aggregeret rapportering og stram alignment uden at ændre den aktive policy.
+Den bør først skiftes til `p=quarantine`, når både indgående og udgående mail
+er verificeret.
 
 ## Afsendelse fra kode
 
@@ -72,4 +74,28 @@ pass insert resend/api-key
 
 Til afsendelsen bruges en server-side funktion eller en lille separat service.
 Den statiske GIHC-side må ikke kalde Resend direkte fra browseren.
+
+## Hvis mail lander i spam
+
+Først skal de fulde headers fra modtagermailen kontrolleres. Se efter:
+
+- `Authentication-Results`
+- `Received-SPF`
+- `DKIM-Signature`
+- afsendende IP i `Received`
+- eventuelle `X-Spam`-headers
+
+`spf=pass`, `dkim=pass` og `dmarc=pass` betyder, at autentificeringen virker,
+og at spamplaceringen sandsynligvis handler om afsenderomdømme eller indhold.
+
+Ved en ny afsenderadresse bør man:
+
+1. Markere mailen som “Ikke spam” i Gmail.
+2. Tilføje `mail@gihc.online` til kontakter.
+3. Sende almindelig, personlig tekst uden links, billeder og vedhæftninger.
+4. Besvare en eksisterende mail fra samme adresse for at opbygge historik.
+5. Undgå udsendelser til mange modtagere, indtil omdømmet er etableret.
+
+DMARC står bevidst på `p=none`, indtil de faktiske mailheaders viser, at både
+SPF og DKIM er aligned. Derefter kan policyen skiftes til `p=quarantine`.
 

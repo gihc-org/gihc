@@ -166,6 +166,9 @@ Se [MAIL.md](MAIL.md) og `scripts/setup-migadu-mail.py`.
 - [x] Aktivér domænet med `--activate`.
 - [ ] Accepter Migadu-invitationen og vælg adgangskode til `mail@gihc.online`.
 - [ ] Test indgående og udgående mail fra Gmail og Outlook.
+- [ ] Gem eller kopiér de fulde Gmail-headers fra den første spamplacerede
+      mail og kontrollér SPF-, DKIM- og DMARC-resultater samt afsender-IP.
+- [ ] Markér adressen som “Ikke spam” og tilføj den til Gmail-kontakter.
 - [ ] Stram DMARC til `p=quarantine`, når mailflowet er verificeret.
 - [ ] Opdatér hjemmesidens kontaktoplysninger til `mail@gihc.online`.
 - [ ] Opret en separat Resend API-nøgle til server-side afsendelse.

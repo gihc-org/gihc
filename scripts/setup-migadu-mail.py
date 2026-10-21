@@ -87,6 +87,18 @@ def simply_post(user: str, token: str, payload: dict[str, Any]) -> None:
     request_json(SIMPLY_API, user, token, method="POST", payload=payload)
 
 
+def simply_put(
+    user: str, token: str, record_id: int, payload: dict[str, Any]
+) -> None:
+    request_json(
+        f"{SIMPLY_API}{record_id}/",
+        user,
+        token,
+        method="PUT",
+        payload=payload,
+    )
+
+
 def normalized_value(value: Any) -> str:
     return str(value).strip().rstrip(".")
 
@@ -284,6 +296,59 @@ def apply_dns(
         simply_post(simply_user, simply_token, payload)
 
 
+def ensure_dmarc_reporting(
+    simply_user: str, simply_token: str, local_part: str
+) -> None:
+    """Keep the current policy, but add aggregate-report and alignment tags."""
+    records = simply_get(simply_user, simply_token)
+    dmarc = [
+        record
+        for record in records
+        if record_type(record) == "TXT" and record_name(record) == "_dmarc"
+    ]
+    if not dmarc:
+        payload = {
+            "type": "TXT",
+            "name": "_dmarc",
+            "data": (
+                "v=DMARC1; p=none; pct=100; adkim=s; aspf=r; "
+                f"rua=mailto:{local_part}@{DOMAIN};"
+            ),
+            "ttl": 3600,
+            "comment": "GIHC DMARC",
+        }
+        print("==> Opretter DMARC-record med rapportering")
+        simply_post(simply_user, simply_token, payload)
+        return
+
+    if len(dmarc) > 1:
+        fail("Der findes mere end én _dmarc TXT-record.")
+
+    record = dmarc[0]
+    current = str(record.get("data", "")).strip()
+    tags = {part.split("=", 1)[0].strip() for part in current.split(";") if "=" in part}
+    missing = [
+        tag
+        for tag in ("pct=100", f"rua=mailto:{local_part}@{DOMAIN}", "adkim=s", "aspf=r")
+        if tag.split("=", 1)[0] not in tags
+    ]
+    if not missing:
+        print("==> DMARC-record har allerede rapportering og alignment")
+        return
+
+    updated = current.rstrip(";")
+    updated = f"{updated}; {'; '.join(missing)};"
+    payload = {
+        "type": "TXT",
+        "name": "_dmarc",
+        "data": updated,
+        "ttl": record.get("ttl", 3600),
+        "comment": record.get("comment", "GIHC"),
+    }
+    print("==> Tilføjer rapportering og alignment til DMARC")
+    simply_put(simply_user, simply_token, int(record["record_id"]), payload)
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Opsæt Migadu-mail til GIHC via API."
@@ -342,6 +407,7 @@ def main() -> None:
         print(f"==> {len(required)} Migadu-records klar")
         if args.apply:
             apply_dns(required, simply_user, simply_token)
+            ensure_dmarc_reporting(simply_user, simply_token, args.local_part)
 
     if args.diagnose:
         diagnostics = migadu_get(
