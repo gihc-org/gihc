@@ -867,6 +867,61 @@ svg {
   font-weight: 700;
 }
 
+.contact-card {
+  width: min(100%, 31rem);
+  border-top: 1px solid var(--ink);
+  padding-top: 1.15rem;
+  font-style: normal;
+}
+
+.contact-kicker {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-family: var(--mono);
+  font-size: 0.61rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.contact-card > strong {
+  display: block;
+  font-family: var(--display);
+  font-size: 1.25rem;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+}
+
+.contact-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 0.8rem;
+}
+
+.contact-links a {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 0.15rem;
+  border-top: 1px solid rgba(23, 24, 18, 0.45);
+  padding-top: 0.45rem;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  overflow-wrap: anywhere;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25rem;
+}
+
+.contact-links a span {
+  color: var(--moss);
+  font-size: 0.56rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
 .manifesto {
   padding: clamp(4.5rem, 9vw, 9rem) var(--page-pad);
   background: var(--orange);
@@ -1206,6 +1261,10 @@ svg {
 
   .join-copy {
     max-width: none;
+  }
+
+  .contact-links {
+    grid-template-columns: 1fr;
   }
 
   .manifesto-columns {

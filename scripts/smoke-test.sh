@@ -40,6 +40,10 @@ if grep -q '<image' "${TMP_DIR}/logo.svg"; then
 fi
 grep -q 'gihc-badge-75mm.zip' "${TMP_DIR}/index.html" \
     || fail "downloadlinket til mærkepakken mangler"
+grep -q 'mailto:kristian.n.jensen@gmail.com' "${TMP_DIR}/index.html" \
+    || fail "e-mailkontakt mangler"
+grep -q 'tel:+4552699443' "${TMP_DIR}/index.html" \
+    || fail "telefonkontakt mangler"
 grep -qi '^content-type: application/zip' "${TMP_DIR}/download-headers.txt" \
     || fail "mærkepakken serveres ikke som application/zip"
 [ "$(head -c 2 "${TMP_DIR}/gihc-badge-75mm.zip")" = "PK" ] \
@@ -67,5 +71,5 @@ if [[ "$BASE_URL" == https://* ]]; then
         || fail "TLS-certifikatet kunne ikke verificeres"
 fi
 
-echo "PASS: forside, vektorlogo, mærkedownload, health, 404, sikkerhedsheadere og TLS er OK"
+echo "PASS: forside, vektorlogo, mærkedownload, kontaktlinks, health, 404, sikkerhedsheadere og TLS er OK"
 
