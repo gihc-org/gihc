@@ -91,6 +91,11 @@ Se `artwork/gihc-badge/README.md` for mål, fremstilling og maskinbroderi.
 Se `WEBSITE.md` for lokal forhåndsvisning, redigering af de danske og engelske
 datafiler, kontrol af links og assets samt byg og deploy.
 
+=== Mail
+
+Se `MAIL.md` for kodebaseret opsætning af `mail@gihc.online` med Migadu,
+Simply.com DNS og Resend til udgående systemmail.
+
 === Sikkerhed
 
 - Containerens runtime-image scannes for HIGH- og CRITICAL-sårbarheder før

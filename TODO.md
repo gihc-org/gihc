@@ -150,3 +150,19 @@ Se den samlede liste i [samarbejdspartnere.md](samarbejdspartnere.md).
 | --- | --- | --- | --- | --- |
 |  |  |  | Ikke kontaktet |  |
 
+## E-mailopsætning
+
+Se [MAIL.md](MAIL.md) og `scripts/setup-migadu-mail.py`.
+
+- [ ] Opret Migadu-konto og gem `migadu/account` i `pass`.
+- [ ] Opret Migadu API-nøgle og gem `migadu/api-key` i `pass`.
+- [ ] Kør `./scripts/setup-migadu-mail.py` som tørkørsel.
+- [ ] Kør `./scripts/setup-migadu-mail.py --apply`.
+- [ ] Accepter Migadu-invitationen og vælg adgangskode til `mail@gihc.online`.
+- [ ] Kør `--diagnose`, når DNS har propageret.
+- [ ] Kør `--activate`, når diagnostikken består.
+- [ ] Test indgående og udgående mail fra Gmail og Outlook.
+- [ ] Stram DMARC til `p=quarantine`, når mailflowet er verificeret.
+- [ ] Opdatér hjemmesidens kontaktoplysninger til `mail@gihc.online`.
+- [ ] Opret en separat Resend API-nøgle til server-side afsendelse.
+

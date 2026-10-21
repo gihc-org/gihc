@@ -1,4 +1,6 @@
 node_modules/
 _site/
 .cache/
+__pycache__/
+*.pyc
 
