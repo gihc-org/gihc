@@ -8,7 +8,7 @@ COPY eleventy.config.js ./
 COPY src ./src
 RUN npm run build
 
-FROM docker.io/nginxinc/nginx-unprivileged:1.27-alpine
+FROM docker.io/nginxinc/nginx-unprivileged:1.31-alpine
 
 LABEL org.opencontainers.image.title="GIHC website"
 LABEL org.opencontainers.image.description="The public website for Global Institute of Hybrid Cleverness"

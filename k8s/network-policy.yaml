@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: gihc-site
+  namespace: gihc-site
+  labels:
+    app: gihc-site
+    app.kubernetes.io/name: gihc-site
+spec:
+  podSelector:
+    matchLabels:
+      app: gihc-site
+  policyTypes:
+    - Ingress
+    - Egress
+  ingress:
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: ingress-nginx
+      ports:
+        - protocol: TCP
+          port: 8080
+  # The pod serves static files and does not need DNS or other egress.
+  egress: []
+

@@ -109,6 +109,33 @@ Kommandoen bygger siden og kontrollerer blandt andet:
 
 Test også gerne siden manuelt ved cirka 390 px og 1440 px bredde.
 
+## Sikkerhed
+
+Runtime-containeren bruger den vedligeholdte Nginx-linje
+`nginx-unprivileged:1.31-alpine`. GitHub Actions scanner det byggede image med
+Trivy og stopper publiceringen ved uafhjulpne HIGH- eller CRITICAL-fund.
+
+Dependabot foreslår ugentlige opdateringer af:
+
+- npm-afhængigheder
+- GitHub Actions
+- Docker-baseimages
+
+Kubernetes-workloaden har følgende ekstra beskyttelse:
+
+- namespace-labelen `pod-security.kubernetes.io/enforce: restricted`
+- en NetworkPolicy, der kun tillader trafik fra ingress-nginx til port 8080
+- blokeret pod-egress, fordi den statiske side ikke har brug for udgående trafik
+
+CAA-recorden oprettes og kontrolleres med:
+
+```bash
+./scripts/create-caa-record.sh
+```
+
+Den aktuelle DNSSEC-status skal kontrolleres særskilt. Der blev ikke fundet en
+DS-record ved sikkerhedsgennemgangen 21. oktober 2026.
+
 ## Byg og deploy
 
 Den normale produktionsvej er:
@@ -148,4 +175,7 @@ docker stop gihc-local
 | `package-lock.json` | Låste build-afhængigheder |
 | `Dockerfile` | Eleventy-build og statisk Nginx-image |
 | `scripts/check-build.mjs` | Automatisk indholds- og linkkontrol |
+| `k8s/network-policy.yaml` | Begrænser ingress og blokerer egress |
+| `.github/workflows/publish.yml` | Build-, CVE-scanning og publicering |
+| `.github/dependabot.yml` | Ugentlige opdateringsforslag |
 

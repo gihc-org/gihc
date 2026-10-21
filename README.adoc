@@ -34,6 +34,7 @@ docker build -t ghcr.io/gihc-org/gihc:latest .
 
 # DNS og deploy (kræver pass, SSH-nøgle og åben tunnel til k3s)
 ./scripts/create-dns-record.sh
+./scripts/create-caa-record.sh
 ssh -L 6443:localhost:6443 -N -f root@65.109.233.92
 ./scripts/deploy.sh
 ./scripts/smoke-test.sh
@@ -89,3 +90,15 @@ Se `artwork/gihc-badge/README.md` for mål, fremstilling og maskinbroderi.
 
 Se `WEBSITE.md` for lokal forhåndsvisning, redigering af de danske og engelske
 datafiler, kontrol af links og assets samt byg og deploy.
+
+=== Sikkerhed
+
+- Containerens runtime-image scannes for HIGH- og CRITICAL-sårbarheder før
+  publicering.
+- GitHub Actions er pinnet til commit-SHA'er, og Dependabot holder npm,
+  GitHub Actions og Docker opdateret.
+- Workloaden kører med Kubernetes Pod Security `restricted`.
+- En NetworkPolicy tillader kun HTTP fra ingress-nginx til port 8080 og
+  blokerer pod'ens egress.
+- CAA begrænser certifikatudstedelse til Let's Encrypt.
+- DNSSEC er ikke aktiveret og afhænger af Simply.coms understøttelse.
