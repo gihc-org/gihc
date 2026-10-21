@@ -13,7 +13,9 @@ include::manifest.adoc[]
 == Hjemmeside
 
 Hjemmesiden ligger i `site/` og serveres som statiske filer fra en
-Nginx-container. Kubernetes-manifesterne ligger i `k8s/`.
+Nginx-container. Hovedlogoet er en ren SVG med vektorstier og uden indlejret
+bitmap; WebP-varianten bruges til sociale delingsbilleder.
+Kubernetes-manifesterne ligger i `k8s/`.
 
 [source,bash]
 ----

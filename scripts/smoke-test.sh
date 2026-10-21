@@ -20,16 +20,21 @@ fail() {
 echo "==> Tester ${BASE_URL}"
 
 curl -fsS --max-time 20 "${BASE_URL}/" -o "${TMP_DIR}/index.html"
-curl -fsS --max-time 20 "${BASE_URL}/assets/gihc-emblem.webp" \
-    -o "${TMP_DIR}/logo.webp" \
+curl -fsS --max-time 20 "${BASE_URL}/assets/gihc-emblem.svg" \
+    -o "${TMP_DIR}/logo.svg" \
     -D "${TMP_DIR}/logo-headers.txt"
 
 grep -q '<title>GIHC — Global Institute of Hybrid Cleverness</title>' \
     "${TMP_DIR}/index.html" || fail "forsidens titel mangler"
-grep -q 'gihc-emblem.webp' "${TMP_DIR}/index.html" \
+grep -q 'gihc-emblem.svg' "${TMP_DIR}/index.html" \
     || fail "logoet refereres ikke fra forsiden"
-grep -qi '^content-type: image/webp' "${TMP_DIR}/logo-headers.txt" \
-    || fail "logoet serveres ikke som image/webp"
+grep -qi '^content-type: image/svg+xml' "${TMP_DIR}/logo-headers.txt" \
+    || fail "logoet serveres ikke som image/svg+xml"
+grep -q '<svg' "${TMP_DIR}/logo.svg" \
+    || fail "logoet er ikke SVG"
+if grep -q '<image' "${TMP_DIR}/logo.svg"; then
+    fail "SVG-logoet indeholder et indlejret bitmap"
+fi
 
 curl -fsS --max-time 20 "${BASE_URL}/healthz" \
     | grep -qx 'ok' || fail "health endpoint svarer ikke ok"
@@ -53,5 +58,5 @@ if [[ "$BASE_URL" == https://* ]]; then
         || fail "TLS-certifikatet kunne ikke verificeres"
 fi
 
-echo "PASS: forside, logo, health, 404, sikkerhedsheadere og TLS er OK"
+echo "PASS: forside, vektorlogo, health, 404, sikkerhedsheadere og TLS er OK"
 
