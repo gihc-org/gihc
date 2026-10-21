@@ -5,9 +5,9 @@
 > Du fortsætter arbejdet på GIHC-hjemmesiden i
 > `/home/kristian/projects/gihc`.
 >
-> Læs først `README.adoc`, `WEBSITE.md`, `TODO.md`,
+> Læs først `README.adoc`, `WEBSITE.md`, `MAIL.md`, `TODO.md`,
 > `samarbejdspartnere.md`, `eleventy.config.js`, `package.json`,
-> `k8s/` og `scripts/`. Kontrollér derefter `git status` og
+> `artwork/`, `k8s/` og `scripts/`. Kontrollér derefter `git status` og
 > `git log -5 --oneline`.
 >
 > **Aktuel arkitektur**
@@ -38,22 +38,27 @@
 > - CAA tillader kun Let's Encrypt. DNSSEC er fortsat ikke konfigureret.
 > - Migadu er sat op med postkassen `mail@gihc.online`; domænet er aktivt,
 >   og MX, SPF, DKIM og verifikation er grønne.
-> - Migadu-invitationen afventer accept i Gmail, hvorefter indgående og
->   udgående mail skal testes.
+> - Postkassen er taget i brug. Udgående testmail er observeret leveret,
+>   men den første mail endte i Gmail-spam.
+> - DMARC står fortsat på `p=none`, nu med `rua`, `adkim=s`, `aspf=r` og
+>   `pct=100`. Policyen må først strammes efter headeranalyse.
+> - Der findes en forenklet GitHub-avatar i SVG og PNG i
+>   `artwork/gihc-avatar/`.
+> - Sessionens referat ligger i `referater/2026-10-21.md`.
 >
 > **Status ved handover**
 >
 > - https://gihc.online og https://gihc.online/en/ svarer korrekt med gyldigt
 >   HTTPS-certifikat.
-> - Eleventy-migreringen ligger i commit `0db9d0b`.
-> - Den tosprogede i18n/l10n-migrering ligger i commit `889cf80`.
-> - Sikkerhedshærdningen ligger i commit `6bf781e`.
-> - Ved skrivning af denne handover var `889cf80` ikke pushet til
->   `origin/main`. Kontrollér altid den aktuelle forskel med `git status -sb`.
-> - GitHub Actions-kørslerne frem til `4c4c5f0` var gennemført med resultatet
->   `success`; den nye tosprogede revision skal kontrolleres efter push.
+> - Repoet var synkroniseret med `origin/main` ved `5c6333e`, og GitHub
+>   Actions-kørslen for den commit var `success`.
+> - Produktionsmanifestet peger på website-image `77a68e2`, som indeholder
+>   den seneste CSS-rettelse. Efterfølgende commits er dokumentation, mail
+>   og avatar og kræver ikke nyt website-image.
+> - Kontrollér altid den aktuelle forskel med `git status -sb`.
 > - `npm run check` og `scripts/smoke-test.sh https://gihc.online` bestod.
-> - Arbejdstræet var rent før opdateringen af denne handover.
+> - Migadus DNS-diagnostik bestod for verify, nameservers, SPF, MX og DKIM.
+> - De fulde Gmail-headers fra spammailen mangler stadig.
 >
 > **Vigtige kommandoer**
 >
@@ -63,6 +68,7 @@
 > npm run check
 > git status
 > ./scripts/smoke-test.sh https://gihc.online
+> ./scripts/setup-migadu-mail.py --diagnose
 > ```
 >
 > Hvis den lokale k3s-installation optager port 6443, må den ikke bruges til
@@ -90,6 +96,8 @@
 >   CRITICAL-sårbarheder.
 > - Opdatér `WEBSITE.md`, hvis arbejdsgangen eller filstrukturen ændres.
 > - Undgå at ændre den lokale k3s-installation på port 6443.
+> - Læg aldrig credentials eller private nøgler i filer. Brug `pass` og
+>   Kubernetes Secrets.
 >
 > **Deploy ved indholdsændringer**
 >
@@ -118,6 +126,11 @@
 > - Undersøg hos Simply.com, om DNSSEC kan aktiveres.
 > - Beslut senere, om den private kontaktadresse skal erstattes af en
 >   rollebaseret adresse som `kontakt@gihc.online`.
+> - Analysér de fulde Gmail-headers fra den spamplacerede mail. Kontrollér
+>   `Authentication-Results`, `Received-SPF`, DKIM og afsender-IP, før DMARC
+>   ændres til `p=quarantine`.
+> - Fortsæt opvarmningen af `mail@gihc.online` med personlig, almindelig
+>   tekst og test både indgående og udgående mail.
 >
 > **Definition af færdig**
 >
@@ -164,7 +177,7 @@ Se [MAIL.md](MAIL.md) og `scripts/setup-migadu-mail.py`.
 - [x] Kør `./scripts/setup-migadu-mail.py --apply`.
 - [x] Kontrollér MX, SPF, DKIM og domæneverifikation med `--diagnose`.
 - [x] Aktivér domænet med `--activate`.
-- [ ] Accepter Migadu-invitationen og vælg adgangskode til `mail@gihc.online`.
+- [x] Accepter Migadu-invitationen og vælg adgangskode til `mail@gihc.online`.
 - [ ] Test indgående og udgående mail fra Gmail og Outlook.
 - [ ] Gem eller kopiér de fulde Gmail-headers fra den første spamplacerede
       mail og kontrollér SPF-, DKIM- og DMARC-resultater samt afsender-IP.
