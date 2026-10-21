@@ -20,6 +20,8 @@
 > - Forsidens fælles sektioner ligger i `src/_includes/home.njk`.
 > - Dansk forside ligger i `src/index.njk`, engelsk i `src/en/index.njk`,
 >   og 404-siden i `src/404.njk`.
+> - Sprogskifte og `hreflang` genereres fra de to sprogdatafiler. Dansk er
+>   standard på `/`, og engelsk ligger på `/en/`.
 > - Styles og statiske filer ligger i `src/assets/`.
 > - `Dockerfile` bruger et Node 24-buildtrin og kopierer derefter det
 >   statiske Eleventy-output til det eksisterende unprivileged Nginx-image.
@@ -29,14 +31,16 @@
 >
 > **Status ved handover**
 >
-> - https://gihc.online svarer korrekt med gyldigt HTTPS-certifikat.
+> - https://gihc.online og https://gihc.online/en/ svarer korrekt med gyldigt
+>   HTTPS-certifikat.
 > - Eleventy-migreringen ligger i commit `0db9d0b`.
-> - Produktionspinnen ligger i commit `4c4c5f0`.
-> - `main` var synkroniseret med `origin/main` ved handover.
-> - GitHub Actions-kørslen for `4c4c5f0` var gennemført med resultatet
->   `success`.
+> - Den tosprogede i18n/l10n-migrering ligger i commit `889cf80`.
+> - Ved skrivning af denne handover var `889cf80` ikke pushet til
+>   `origin/main`. Kontrollér altid den aktuelle forskel med `git status -sb`.
+> - GitHub Actions-kørslerne frem til `4c4c5f0` var gennemført med resultatet
+>   `success`; den nye tosprogede revision skal kontrolleres efter push.
 > - `npm run check` og `scripts/smoke-test.sh https://gihc.online` bestod.
-> - Arbejdstræet var rent ved handover.
+> - Arbejdstræet var rent før opdateringen af denne handover.
 >
 > **Vigtige kommandoer**
 >
