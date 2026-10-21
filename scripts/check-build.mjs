@@ -11,6 +11,7 @@ const requiredFiles = [
   "assets/favicon.svg",
   "assets/gihc-emblem.svg",
   "assets/gihc-emblem.webp",
+  "assets/gihc-og.png",
   "assets/gihc-badge-75mm.zip"
 ];
 
@@ -34,6 +35,8 @@ const expectations = [
   ["engelsk sprogkode", englishIndex.includes('<html lang="en">')],
   ["engelsk hero", englishIndex.includes("The association for playful preparedness")],
   ["engelsk indhold", englishIndex.includes("Four ways to") && englishIndex.includes("Without internet")],
+  ["socialt previewbillede", index.includes('property="og:image" content="https://gihc.online/assets/gihc-og.png"') && index.includes('property="og:image:type" content="image/png"') && index.includes('property="og:image:width" content="1200"') && index.includes('property="og:image:height" content="630"')],
+  ["Twitter-previewbillede", index.includes('name="twitter:image" content="https://gihc.online/assets/gihc-og.png"') && englishIndex.includes('name="twitter:image" content="https://gihc.online/assets/gihc-og.png"')],
   ["engelsk sprogskift", englishIndex.includes('href="/"') && englishIndex.includes('hreflang="da"')],
   ["sprogalternativer", index.includes('hreflang="x-default"') && englishIndex.includes('hreflang="x-default"')],
   ["404-indhold", notFound.includes("Denne sti fører ikke hjem. Endnu.")],
@@ -71,6 +74,17 @@ for (const match of englishIndex.matchAll(/(?:href|src)="(\/[^"#?]+)"/g)) {
 const zip = await readFile(path.join(outputDir, "assets/gihc-badge-75mm.zip"));
 if (zip[0] !== 0x50 || zip[1] !== 0x4b) {
   throw new Error("Badge download is not a ZIP file");
+}
+
+const socialImage = await readFile(path.join(outputDir, "assets/gihc-og.png"));
+const pngSignature = Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]);
+if (!socialImage.subarray(0, pngSignature.length).equals(pngSignature)) {
+  throw new Error("Open Graph image is not a PNG file");
+}
+const width = socialImage.readUInt32BE(16);
+const height = socialImage.readUInt32BE(20);
+if (width !== 1200 || height !== 630) {
+  throw new Error(`Open Graph image has unexpected dimensions: ${width}x${height}`);
 }
 
 console.log("PASS: Eleventy build, dansk og engelsk indhold, links og assets er OK");

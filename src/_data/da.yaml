@@ -19,7 +19,10 @@ meta:
   siteUrl: https://gihc.online
   socialTitle: GIHC — Global Institute of Hybrid Cleverness
   socialDescription: Lidt grønnere. Lidt mere crypto. Lidt mere sammen.
-  socialImage: https://gihc.online/assets/gihc-emblem.webp
+  socialImage: https://gihc.online/assets/gihc-og.png
+  socialImageType: image/png
+  socialImageWidth: 1200
+  socialImageHeight: 630
   socialImageAlt: GIHCs emblem med bål, telt, solceller, radio og træer
 
 brand:

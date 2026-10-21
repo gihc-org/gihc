@@ -92,6 +92,21 @@ src/assets/gihc-badge-75mm.zip
 Den kanoniske kilde til mærkepakken ligger fortsat i `artwork/gihc-badge/`.
 Hvis pakken ændres, skal ZIP-filen genbygges og kopieres til `src/assets/`.
 
+### Socialt previewbillede
+
+Linkpreviews bruger `src/assets/gihc-og.png`, som er et 1200 × 630 PNG-kort
+uden transparens. Layoutkilden er `src/assets/gihc-og.svg`.
+
+Genbyg PNG’en fra `src/assets/`:
+
+```bash
+inkscape gihc-og.svg --export-type=png --export-width=1200 \
+  --export-height=630 --export-background='#f3eddd' \
+  --export-filename=/tmp/gihc-og.png
+convert /tmp/gihc-og.png -background '#f3eddd' -alpha remove \
+  -alpha off -strip PNG24:gihc-og.png
+```
+
 ## Kontrollér ændringerne
 
 ```bash
