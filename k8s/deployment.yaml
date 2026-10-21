@@ -31,7 +31,7 @@ spec:
           type: RuntimeDefault
       containers:
         - name: web
-          image: ghcr.io/gihc-org/gihc:4c9c7c1e2cc6692703a24eb32d3ecb13be8eba54
+          image: ghcr.io/gihc-org/gihc:240c63fe84ad24061c4a9cd8051198b2e191e353
           imagePullPolicy: IfNotPresent
           ports:
             - name: http
