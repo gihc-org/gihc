@@ -31,8 +31,8 @@ spec:
           type: RuntimeDefault
       containers:
         - name: web
-          image: ghcr.io/gihc-org/gihc:latest
-          imagePullPolicy: Always
+          image: ghcr.io/gihc-org/gihc:c67ae7b8812f913b5041df814d77a0c3821b6c53
+          imagePullPolicy: IfNotPresent
           ports:
             - name: http
               containerPort: 8080

@@ -19,7 +19,7 @@ export KUBECONFIG="${KUBECONFIG:-$HOME/.kube/gihc.yml}"
 
 NAMESPACE="gihc-site"
 DEPLOYMENT="gihc-site"
-IMAGE="${IMAGE:-ghcr.io/gihc-org/gihc:latest}"
+IMAGE="${IMAGE:-}"
 IMAGE_PULL_POLICY="${IMAGE_PULL_POLICY:-}"
 
 KUBECTL=(kubectl)
@@ -43,15 +43,19 @@ echo "==> Anvender Kubernetes-manifester"
 "${KUBECTL[@]}" apply -f "${ROOT_DIR}/k8s/service.yaml"
 "${KUBECTL[@]}" apply -f "${ROOT_DIR}/k8s/ingress.yaml"
 
-echo "==> Bruger image ${IMAGE}"
-"${KUBECTL[@]}" -n "$NAMESPACE" set image "deployment/${DEPLOYMENT}" "web=${IMAGE}"
-if [ -n "$IMAGE_PULL_POLICY" ]; then
-    "${KUBECTL[@]}" -n "$NAMESPACE" patch "deployment/${DEPLOYMENT}" \
-        --type=json \
-        -p="[{\"op\":\"replace\",\"path\":\"/spec/template/spec/containers/0/imagePullPolicy\",\"value\":\"${IMAGE_PULL_POLICY}\"}]"
+if [ -n "$IMAGE" ]; then
+    echo "==> Bruger image ${IMAGE}"
+    "${KUBECTL[@]}" -n "$NAMESPACE" set image "deployment/${DEPLOYMENT}" "web=${IMAGE}"
+    if [ -n "$IMAGE_PULL_POLICY" ]; then
+        "${KUBECTL[@]}" -n "$NAMESPACE" patch "deployment/${DEPLOYMENT}" \
+            --type=json \
+            -p="[{\"op\":\"replace\",\"path\":\"/spec/template/spec/containers/0/imagePullPolicy\",\"value\":\"${IMAGE_PULL_POLICY}\"}]"
+    fi
+else
+    echo "==> Bruger det SHA-pinnede image fra manifesterne"
 fi
 "${KUBECTL[@]}" -n "$NAMESPACE" annotate "deployment/${DEPLOYMENT}" \
-    "kubernetes.io/change-cause=Deploy ${IMAGE}" --overwrite
+    "kubernetes.io/change-cause=Deploy ${IMAGE:-SHA-pinnet manifest}" --overwrite
 "${KUBECTL[@]}" -n "$NAMESPACE" rollout restart "deployment/${DEPLOYMENT}"
 
 echo "==> Venter på rollout"

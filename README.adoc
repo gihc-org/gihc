@@ -59,3 +59,12 @@ kubectl apply -k k8s/
 Ved push til `main` bygger `.github/workflows/publish.yml` et image til
 `ghcr.io/gihc-org/gihc:latest`. Siden er tilgængelig på
 https://gihc.online[gihc.online].
+
+Produktionsmanifestet pinner image med den commit-SHA, som imageet blev bygget
+fra. Ved en ny release opdateres tagget i `k8s/deployment.yaml`; det giver
+samme rollback-mønster som `loft-prod`:
+
+[source,bash]
+----
+IMAGE=ghcr.io/gihc-org/gihc:<commit-sha> ./scripts/deploy.sh
+----
