@@ -27,6 +27,7 @@ docker build -t ghcr.io/gihc-org/gihc:latest .
 ./scripts/create-dns-record.sh
 ssh -L 6443:localhost:6443 -N -f root@65.109.233.92
 ./scripts/deploy.sh
+./scripts/smoke-test.sh
 ----
 
 NOTE: På udviklingsmaskinen er port 6443 allerede optaget af det lokale
@@ -46,6 +47,13 @@ ss -ltnp | grep 6443
 ----
 ssh -L 16443:localhost:6443 -N -f hetzner-k3s
 KUBECTL_SERVER=https://127.0.0.1:16443 ./scripts/deploy.sh
+----
+
+Manifesterne kan også anvendes samlet med:
+
+[source,bash]
+----
+kubectl apply -k k8s/
 ----
 
 Ved push til `main` bygger `.github/workflows/publish.yml` et image til
