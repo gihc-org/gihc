@@ -1,0 +1,29 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: gihc-site
+  namespace: gihc-site
+  labels:
+    app: gihc-site
+    app.kubernetes.io/name: gihc-site
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - gihc.online
+      secretName: gihc-online-tls
+  rules:
+    - host: gihc.online
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: gihc-site
+                port:
+                  number: 80
+

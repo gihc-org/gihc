@@ -9,3 +9,35 @@ include::formål.adoc[]
 include::beskrivelse.adoc[]
 
 include::manifest.adoc[]
+
+== Hjemmeside
+
+Hjemmesiden ligger i `site/` og serveres som statiske filer fra en
+Nginx-container. Kubernetes-manifesterne ligger i `k8s/`.
+
+[source,bash]
+----
+# Lokal forhåndsvisning
+python3 -m http.server 8080 --directory site
+
+# Byg container lokalt
+docker build -t ghcr.io/gihc-org/gihc:latest .
+
+# DNS og deploy (kræver pass, SSH-nøgle og åben tunnel til k3s)
+./scripts/create-dns-record.sh
+ssh -L 6443:localhost:6443 -N -f root@65.109.233.92
+./scripts/deploy.sh
+----
+
+Hvis port 6443 allerede bruges af et lokalt k3s-cluster, kan tunnelen i stedet
+åbnes på 16443 og deployes med:
+
+[source,bash]
+----
+ssh -L 16443:localhost:6443 -N -f hetzner-k3s
+KUBECTL_SERVER=https://127.0.0.1:16443 ./scripts/deploy.sh
+----
+
+Ved push til `main` bygger `.github/workflows/publish.yml` et image til
+`ghcr.io/gihc-org/gihc:latest`. Siden er tilgængelig på
+https://gihc.online[gihc.online].

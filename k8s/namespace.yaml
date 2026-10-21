@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: gihc-site
+  labels:
+    app.kubernetes.io/part-of: gihc-site
+

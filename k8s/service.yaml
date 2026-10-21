@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: gihc-site
+  namespace: gihc-site
+  labels:
+    app: gihc-site
+    app.kubernetes.io/name: gihc-site
+spec:
+  type: ClusterIP
+  selector:
+    app: gihc-site
+  ports:
+    - name: http
+      port: 80
+      targetPort: http
+      protocol: TCP
+
