@@ -20,6 +20,7 @@ GitHub accepterer normalt ikke SVG som profilbillede. Upload derfor
 Avatar-versionen bruger kun de vigtigste visuelle elementer fra mærket:
 
 - solen
+- WiFi-symbolet
 - teltet
 - bålet
 - landskabet

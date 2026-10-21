@@ -12,7 +12,7 @@
   <title
      id="avatar-title">GIHC avatar</title>
   <desc
-     id="avatar-desc">Et forenklet GIHC-emblem med sol, telt, bål og GIHC-navnet.</desc>
+     id="avatar-desc">Et forenklet GIHC-emblem med sol, telt, bål, WiFi og GIHC-navnet.</desc>
   <defs
      id="defs7">
     <clipPath
@@ -61,23 +61,11 @@
          d="m 144,103 26,22"
          id="path19" />
       <path
-         d="M 314,55 301,85"
-         id="path21" />
-      <path
-         d="m 368,103 -26,22"
-         id="path23" />
-      <path
          d="m 96,166 h 34"
          id="path25" />
       <path
-         d="m 382,166 h 34"
-         id="path27" />
-      <path
          d="m 115,230 30,-13"
          id="path29" />
-      <path
-         d="M 397,230 367,217"
-         id="path31" />
     </g>
     <path
        id="circle35"
@@ -87,6 +75,27 @@
        id="circle37"
        style="fill:#ffe49a"
        d="m 319,180 a 63,63 0 0 1 -63,63 63,63 0 0 1 -63,-63 63,63 0 0 1 63,-63 63,63 0 0 1 63,63 z" />
+    <g id="wifi-icon">
+      <g
+         fill="none"
+         stroke="#f4ead3"
+         stroke-linecap="round">
+        <path
+           d="M 330,114 Q 379,72 428,114"
+           stroke-width="11" />
+        <path
+           d="M 344,131 Q 379,103 414,131"
+           stroke-width="11" />
+        <path
+           d="M 358,148 Q 379,130 400,148"
+           stroke-width="11" />
+      </g>
+      <circle
+         cx="379"
+         cy="169"
+         r="8"
+         fill="#f4ead3" />
+    </g>
     <path
        d="m 20,303 c 42,-42 86,-59 137,-28 33,-28 68,-36 99,-7 41,-45 92,-43 135,-5 39,-25 72,-18 111,30 V 405 H 20 Z"
        fill="#598553"
