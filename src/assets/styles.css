@@ -555,6 +555,27 @@ svg {
   text-transform: uppercase;
 }
 
+.scenario-card > p.scenario-resource {
+  margin-top: 1.2rem;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+}
+
+.scenario-resource span {
+  opacity: 0.72;
+}
+
+.scenario-resource a {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25rem;
+}
+
+.scenario-resource a:hover {
+  text-decoration-thickness: 2px;
+}
+
 .scenarios-note {
   display: flex;
   align-items: center;

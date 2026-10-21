@@ -29,6 +29,7 @@ const expectations = [
   ["hero-tekst", index.includes("Foreningen for legende beredskab")],
   ["aktiviteter", index.includes("Workshops") && index.includes("Lejre") && index.includes("Spil")],
   ["CS Unplugged-link", index.includes('href="https://www.csunplugged.org/en/"') && englishIndex.includes('href="https://www.csunplugged.org/en/"')],
+  ["GIHC Mini-Mesh-link", index.includes('href="https://mesh.gihc.online/"') && englishIndex.includes('href="https://mesh.gihc.online/"')],
   ["downloadlink", index.includes('href="/assets/gihc-badge-75mm.zip"')],
   ["e-mailkontakt", index.includes("mailto:mail@gihc.online") && englishIndex.includes("mailto:mail@gihc.online")],
   ["telefonkontakt", index.includes("tel:+4552699443")],

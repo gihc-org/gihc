@@ -61,6 +61,12 @@
           <div class="scenario-tags">
             {% for tag in card.tags %}<span>{{ tag }}</span>{% endfor %}
           </div>
+          {% if card.resource %}
+            <p class="scenario-resource">
+              <span>{{ card.resource.label }}:</span>
+              <a href="{{ card.resource.href }}" rel="external">{{ card.resource.title }} <span aria-hidden="true">↗</span></a>
+            </p>
+          {% endif %}
         </article>
       {% endfor %}
     </div>

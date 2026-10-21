@@ -109,6 +109,10 @@ scenarios:
         - Radio
         - Mesh
         - Besked
+      resource:
+        label: Projekt
+        title: GIHC Mini-Mesh
+        href: https://mesh.gihc.online/
     - time: Et halvår
       number: "03"
       title: Med pres på forsyninger

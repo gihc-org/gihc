@@ -109,6 +109,10 @@ scenarios:
         - Radio
         - Mesh
         - Messaging
+      resource:
+        label: Project
+        title: GIHC Mini-Mesh
+        href: https://mesh.gihc.online/
     - time: Six months
       number: "03"
       title: Under supply pressure
