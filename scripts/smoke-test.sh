@@ -41,6 +41,8 @@ if grep -q '<image' "${TMP_DIR}/logo.svg"; then
 fi
 grep -q 'gihc-badge-75mm.zip' "${TMP_DIR}/index.html" \
     || fail "downloadlinket til mærkepakken mangler"
+grep -q 'href="https://www.csunplugged.org/en/"' "${TMP_DIR}/index.html" \
+    || fail "linket til CS Unplugged mangler"
 grep -q 'mailto:mail@gihc.online' "${TMP_DIR}/index.html" \
     || fail "e-mailkontakt mangler"
 grep -q 'mailto:mail@gihc.online' "${TMP_DIR}/index-en.html" \

@@ -641,6 +641,27 @@ svg {
   text-transform: uppercase;
 }
 
+.activity-card .activity-resource {
+  margin-top: 0.85rem;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+}
+
+.activity-resource span {
+  opacity: 0.75;
+}
+
+.activity-resource a {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25rem;
+}
+
+.activity-resource a:hover {
+  text-decoration-thickness: 2px;
+}
+
 .activity-workshops {
   background: var(--orange);
 }

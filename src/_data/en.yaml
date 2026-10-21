@@ -151,6 +151,10 @@ activities:
       title: Games
       text: "Role-playing and capture the flag, physical and digital. The scenario might be: “The neighbourhood has been offline for three days — what do we do?”"
       detail: We play ourselves wiser.
+      resource:
+        label: Inspiration
+        title: CS Unplugged
+        href: https://www.csunplugged.org/en/
 
 hybrid:
   index: 03 / Hybrid Cleverness

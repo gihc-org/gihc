@@ -151,6 +151,10 @@ activities:
       title: Spil
       text: "Rollespil og capture-the-flag, fysisk og digitalt. Scenariet kan være: “Bydelen har været uden net i tre dage — hvad gør vi?”"
       detail: Vi spiller os klogere.
+      resource:
+        label: Inspiration
+        title: CS Unplugged
+        href: https://www.csunplugged.org/en/
 
 hybrid:
   index: 03 / Hybrid Cleverness

@@ -83,6 +83,12 @@
           <h3>{{ activity.title }}</h3>
           <p>{{ activity.text }}</p>
           <p class="activity-detail">{{ activity.detail }}</p>
+          {% if activity.resource %}
+            <p class="activity-resource">
+              <span>{{ activity.resource.label }}:</span>
+              <a href="{{ activity.resource.href }}" rel="external">{{ activity.resource.title }} <span aria-hidden="true">↗</span></a>
+            </p>
+          {% endif %}
         </article>
       {% endfor %}
     </div>
