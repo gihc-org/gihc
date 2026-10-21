@@ -175,8 +175,8 @@ join:
   points:
     - label: Børn og voksne
       text: lærer bedst sammen.
-    - label: Børn deltager
-      text: sammen med en voksen.
+    - label: Børn må meget gerne
+      text: tage en voksen med.
     - label: Vi starter lokalt
       text: og deler materialer og venskaber på tværs.
   github:
