@@ -178,11 +178,22 @@ svg {
   text-transform: uppercase;
 }
 
-.eyebrow span {
+.eyebrow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.65rem;
+}
+
+.eyebrow-badge {
   display: inline-block;
   background: var(--acid);
   border: 1px solid var(--ink);
   padding: 0.16rem 0.42rem;
+}
+
+.eyebrow-note {
+  white-space: nowrap;
 }
 
 .hero h1 {
