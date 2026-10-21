@@ -1,7 +1,7 @@
-# GIHC spejdermærke og broderipakke
+# GIHC skjortemærke og broderipakke
 
 Pakken indeholder et forenklet GIHC-emblem i 10 flade farver samt en
-konstrueret skabelon til et rundt spejdermærke på 75 mm.
+konstrueret skabelon til et rundt skjortemærke på 75 mm.
 
 ## Filer
 
