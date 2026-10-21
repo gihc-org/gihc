@@ -28,6 +28,14 @@
 > - Kubernetes-workloaden ligger i namespace `gihc-site` og kører på VPS’en
 >   bag ingress-nginx, cert-manager og Let’s Encrypt.
 > - Produktionsmanifestet pinner et SHA-tag i `k8s/deployment.yaml`.
+> - Runtime-imaget bruger Nginx 1.31 med non-root, read-only rootfilsystem,
+>   droppede capabilities og seccomp.
+> - Namespace har Pod Security `restricted`, og en NetworkPolicy tillader kun
+>   ingress-trafik fra `ingress-nginx` til port 8080 samt blokerer egress.
+> - CI scanner imaget med Trivy for HIGH/CRITICAL-sårbarheder, før det pushes.
+> - GitHub Actions er pinnet til commit-SHA'er, og Dependabot opdaterer npm,
+>   Actions og Docker ugentligt.
+> - CAA tillader kun Let's Encrypt. DNSSEC er fortsat ikke konfigureret.
 >
 > **Status ved handover**
 >
@@ -35,6 +43,7 @@
 >   HTTPS-certifikat.
 > - Eleventy-migreringen ligger i commit `0db9d0b`.
 > - Den tosprogede i18n/l10n-migrering ligger i commit `889cf80`.
+> - Sikkerhedshærdningen ligger i commit `6bf781e`.
 > - Ved skrivning af denne handover var `889cf80` ikke pushet til
 >   `origin/main`. Kontrollér altid den aktuelle forskel med `git status -sb`.
 > - GitHub Actions-kørslerne frem til `4c4c5f0` var gennemført med resultatet
@@ -73,6 +82,8 @@
 > - Test både desktop og mobil ved cirka 1440 px og 390 px.
 > - Bevar CSP, sikkerhedsheadere, health checks, non-root-container og
 >   SHA-pinning.
+> - Deploy ikke et image, hvor Trivy finder uafhjulpne HIGH- eller
+>   CRITICAL-sårbarheder.
 > - Opdatér `WEBSITE.md`, hvis arbejdsgangen eller filstrukturen ændres.
 > - Undgå at ændre den lokale k3s-installation på port 6443.
 >
@@ -100,6 +111,9 @@
 > - Hvis mærkepakken ændres, skal den kanoniske kilde i `artwork/gihc-badge/`
 >   opdateres, ZIP-filen genbygges og kopieres til
 >   `src/assets/gihc-badge-75mm.zip`.
+> - Undersøg hos Simply.com, om DNSSEC kan aktiveres.
+> - Beslut senere, om den private kontaktadresse skal erstattes af en
+>   rollebaseret adresse som `kontakt@gihc.online`.
 >
 > **Definition af færdig**
 >
