@@ -41,8 +41,10 @@ if grep -q '<image' "${TMP_DIR}/logo.svg"; then
 fi
 grep -q 'gihc-badge-75mm.zip' "${TMP_DIR}/index.html" \
     || fail "downloadlinket til mærkepakken mangler"
-grep -q 'mailto:kristian.n.jensen@gmail.com' "${TMP_DIR}/index.html" \
+grep -q 'mailto:mail@gihc.online' "${TMP_DIR}/index.html" \
     || fail "e-mailkontakt mangler"
+grep -q 'mailto:mail@gihc.online' "${TMP_DIR}/index-en.html" \
+    || fail "engelsk e-mailkontakt mangler"
 grep -q 'tel:+4552699443' "${TMP_DIR}/index.html" \
     || fail "telefonkontakt mangler"
 grep -q '<html lang="en">' "${TMP_DIR}/index-en.html" \

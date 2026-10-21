@@ -124,8 +124,8 @@
 >   opdateres, ZIP-filen genbygges og kopieres til
 >   `src/assets/gihc-badge-75mm.zip`.
 > - Undersøg hos Simply.com, om DNSSEC kan aktiveres.
-> - Beslut senere, om den private kontaktadresse skal erstattes af en
->   rollebaseret adresse som `kontakt@gihc.online`.
+> - Hjemmesidens kontaktadresse er `mail@gihc.online`. Den private
+>   recovery-adresse bruges kun i Migadu-invitationsflowet.
 > - Analysér de fulde Gmail-headers fra den spamplacerede mail. Kontrollér
 >   `Authentication-Results`, `Received-SPF`, DKIM og afsender-IP, før DMARC
 >   ændres til `p=quarantine`.
@@ -183,6 +183,6 @@ Se [MAIL.md](MAIL.md) og `scripts/setup-migadu-mail.py`.
       mail og kontrollér SPF-, DKIM- og DMARC-resultater samt afsender-IP.
 - [ ] Markér adressen som “Ikke spam” og tilføj den til Gmail-kontakter.
 - [ ] Stram DMARC til `p=quarantine`, når mailflowet er verificeret.
-- [ ] Opdatér hjemmesidens kontaktoplysninger til `mail@gihc.online`.
+- [x] Opdatér hjemmesidens kontaktoplysninger til `mail@gihc.online`.
 - [ ] Opret en separat Resend API-nøgle til server-side afsendelse.
 

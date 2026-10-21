@@ -29,7 +29,7 @@ const expectations = [
   ["hero-tekst", index.includes("Foreningen for legende beredskab")],
   ["aktiviteter", index.includes("Workshops") && index.includes("Lejre") && index.includes("Spil")],
   ["downloadlink", index.includes('href="/assets/gihc-badge-75mm.zip"')],
-  ["e-mailkontakt", index.includes("mailto:kristian.n.jensen@gmail.com")],
+  ["e-mailkontakt", index.includes("mailto:mail@gihc.online") && englishIndex.includes("mailto:mail@gihc.online")],
   ["telefonkontakt", index.includes("tel:+4552699443")],
   ["dansk sprogskift", index.includes('href="/en/"') && index.includes('hreflang="en"')],
   ["engelsk sprogkode", englishIndex.includes('<html lang="en">')],
