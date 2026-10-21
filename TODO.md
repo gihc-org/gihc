@@ -36,6 +36,10 @@
 > - GitHub Actions er pinnet til commit-SHA'er, og Dependabot opdaterer npm,
 >   Actions og Docker ugentligt.
 > - CAA tillader kun Let's Encrypt. DNSSEC er fortsat ikke konfigureret.
+> - Migadu er sat op med postkassen `mail@gihc.online`; domænet er aktivt,
+>   og MX, SPF, DKIM og verifikation er grønne.
+> - Migadu-invitationen afventer accept i Gmail, hvorefter indgående og
+>   udgående mail skal testes.
 >
 > **Status ved handover**
 >
@@ -154,13 +158,13 @@ Se den samlede liste i [samarbejdspartnere.md](samarbejdspartnere.md).
 
 Se [MAIL.md](MAIL.md) og `scripts/setup-migadu-mail.py`.
 
-- [ ] Opret Migadu-konto og gem `migadu/account` i `pass`.
-- [ ] Opret Migadu API-nøgle og gem `migadu/api-key` i `pass`.
-- [ ] Kør `./scripts/setup-migadu-mail.py` som tørkørsel.
-- [ ] Kør `./scripts/setup-migadu-mail.py --apply`.
+- [x] Opret Migadu-konto og gem `migadu/account` i `pass`.
+- [x] Opret Migadu API-nøgle og gem `migadu/api-key` i `pass`.
+- [x] Kør `./scripts/setup-migadu-mail.py` som tørkørsel.
+- [x] Kør `./scripts/setup-migadu-mail.py --apply`.
+- [x] Kontrollér MX, SPF, DKIM og domæneverifikation med `--diagnose`.
+- [x] Aktivér domænet med `--activate`.
 - [ ] Accepter Migadu-invitationen og vælg adgangskode til `mail@gihc.online`.
-- [ ] Kør `--diagnose`, når DNS har propageret.
-- [ ] Kør `--activate`, når diagnostikken består.
 - [ ] Test indgående og udgående mail fra Gmail og Outlook.
 - [ ] Stram DMARC til `p=quarantine`, når mailflowet er verificeret.
 - [ ] Opdatér hjemmesidens kontaktoplysninger til `mail@gihc.online`.
