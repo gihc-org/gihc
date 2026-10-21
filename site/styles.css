@@ -791,6 +791,82 @@ svg {
   text-transform: uppercase;
 }
 
+.join-actions {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.download-card {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1rem;
+  width: min(100%, 31rem);
+  border: 1px solid var(--ink);
+  padding: 0.85rem;
+  background: var(--cream);
+  box-shadow: 4px 4px 0 var(--ink);
+  text-decoration: none;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.download-card:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+.download-icon {
+  display: grid;
+  place-items: center;
+  width: 2.8rem;
+  aspect-ratio: 1;
+  background: var(--blue);
+  color: var(--cream);
+  font-size: 1.45rem;
+  font-weight: 700;
+}
+
+.download-copy {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.download-kicker,
+.download-meta {
+  font-family: var(--mono);
+  font-size: 0.61rem;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.download-kicker {
+  color: var(--moss);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.download-card strong {
+  font-family: var(--display);
+  font-size: 1.25rem;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+}
+
+.download-meta {
+  color: var(--muted);
+}
+
+.download-arrow {
+  align-self: start;
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
 .manifesto {
   padding: clamp(4.5rem, 9vw, 9rem) var(--page-pad);
   background: var(--orange);

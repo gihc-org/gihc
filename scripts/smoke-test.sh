@@ -23,6 +23,9 @@ curl -fsS --max-time 20 "${BASE_URL}/" -o "${TMP_DIR}/index.html"
 curl -fsS --max-time 20 "${BASE_URL}/assets/gihc-emblem.svg" \
     -o "${TMP_DIR}/logo.svg" \
     -D "${TMP_DIR}/logo-headers.txt"
+curl -fsS --max-time 20 "${BASE_URL}/assets/gihc-badge-75mm.zip" \
+    -o "${TMP_DIR}/gihc-badge-75mm.zip" \
+    -D "${TMP_DIR}/download-headers.txt"
 
 grep -q '<title>GIHC — Global Institute of Hybrid Cleverness</title>' \
     "${TMP_DIR}/index.html" || fail "forsidens titel mangler"
@@ -35,6 +38,12 @@ grep -q '<svg' "${TMP_DIR}/logo.svg" \
 if grep -q '<image' "${TMP_DIR}/logo.svg"; then
     fail "SVG-logoet indeholder et indlejret bitmap"
 fi
+grep -q 'gihc-badge-75mm.zip' "${TMP_DIR}/index.html" \
+    || fail "downloadlinket til mærkepakken mangler"
+grep -qi '^content-type: application/zip' "${TMP_DIR}/download-headers.txt" \
+    || fail "mærkepakken serveres ikke som application/zip"
+[ "$(head -c 2 "${TMP_DIR}/gihc-badge-75mm.zip")" = "PK" ] \
+    || fail "mærkepakken er ikke en gyldig ZIP-fil"
 
 curl -fsS --max-time 20 "${BASE_URL}/healthz" \
     | grep -qx 'ok' || fail "health endpoint svarer ikke ok"
@@ -58,5 +67,5 @@ if [[ "$BASE_URL" == https://* ]]; then
         || fail "TLS-certifikatet kunne ikke verificeres"
 fi
 
-echo "PASS: forside, vektorlogo, health, 404, sikkerhedsheadere og TLS er OK"
+echo "PASS: forside, vektorlogo, mærkedownload, health, 404, sikkerhedsheadere og TLS er OK"
 

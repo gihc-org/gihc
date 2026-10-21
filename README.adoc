@@ -75,4 +75,5 @@ IMAGE=ghcr.io/gihc-org/gihc:<commit-sha> ./scripts/deploy.sh
 
 Der findes en separat 75 mm mærkepakke i `artwork/gihc-badge/` med
 broderivenlig color-SVG, A4-syskabelon, skære- og foldelinjer samt farvekort.
+Pakken kan downloades på https://gihc.online/assets/gihc-badge-75mm.zip.
 Se `artwork/gihc-badge/README.md` for mål, fremstilling og maskinbroderi.
