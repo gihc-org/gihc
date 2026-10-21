@@ -1,0 +1,17 @@
+{
+  "name": "gihc-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Static website for Global Institute of Hybrid Cleverness",
+  "scripts": {
+    "dev": "eleventy --serve --port=8080",
+    "build": "eleventy",
+    "check": "npm run build && node scripts/check-build.mjs"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "3.1.7",
+    "js-yaml": "4.3.2"
+  }
+}
+

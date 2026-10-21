@@ -1,3 +1,13 @@
+FROM docker.io/library/node:24-alpine AS builder
+WORKDIR /app
+
+COPY package.json package-lock.json ./
+RUN npm ci
+
+COPY eleventy.config.js ./
+COPY src ./src
+RUN npm run build
+
 FROM docker.io/nginxinc/nginx-unprivileged:1.27-alpine
 
 LABEL org.opencontainers.image.title="GIHC website"
@@ -5,7 +15,7 @@ LABEL org.opencontainers.image.description="The public website for Global Instit
 LABEL org.opencontainers.image.source="https://github.com/gihc-org/gihc"
 
 COPY nginx.conf /etc/nginx/conf.d/default.conf
-COPY site/ /usr/share/nginx/html/
+COPY --from=builder /app/_site/ /usr/share/nginx/html/
 
 EXPOSE 8080
 

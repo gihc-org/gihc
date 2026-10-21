@@ -1,0 +1,217 @@
+meta:
+  lang: da
+  title: GIHC — Global Institute of Hybrid Cleverness
+  description: GIHC er en forening, der gør modstandsdygtighed sjov. Vi forbereder os på det næstværste — med leg, hænder, hoveder og hinanden.
+  themeColor: "#f3eddd"
+  siteUrl: https://gihc.online
+  socialTitle: GIHC — Global Institute of Hybrid Cleverness
+  socialDescription: Lidt grønnere. Lidt mere crypto. Lidt mere sammen.
+  socialImage: https://gihc.online/assets/gihc-emblem.webp
+  socialImageAlt: GIHCs emblem med bål, telt, solceller, radio og træer
+
+brand:
+  nameLine1: Global Institute
+  nameLine2: of Hybrid Cleverness
+  logo: /assets/gihc-emblem.svg
+
+nav:
+  - label: Det næstværste
+    href: "#det-naestvaerste"
+  - label: Aktiviteter
+    href: "#aktiviteter"
+  - label: Hybrid Cleverness
+    href: "#hybrid"
+  - label: Vær med
+    href: "#vaer-med"
+    className: nav-cta
+
+hero:
+  eyebrowBadge: Foreningen for legende beredskab
+  eyebrowNote: "· Est. på jorden"
+  titleLines:
+    - text: Lidt grønnere.
+    - text: Lidt mere crypto.
+    - text: Lidt mere sammen.
+      className: hero-emphasis
+  intro: GIHC gør modstandsdygtighed sjov. Sammen øver vi os på det næstværste — med bål, solceller, førstehjælp, mesh-radio og plads til at grine, når planen ikke holder.
+  primaryAction:
+    label: Se hvad vi laver
+    href: "#aktiviteter"
+    icon: "↘"
+  secondaryAction:
+    label: For familier og nysgerrige
+    href: "#vaer-med"
+    icon: "→"
+  facts:
+    - Alle aldre
+    - Ingen forkundskaber
+    - Lær ved at lege
+  poster:
+    note: Feltnotat 001
+    legend:
+      - Hoved
+      - "×"
+      - Hænder
+      - "×"
+      - Sammenhold
+    coordinate: 60° N / 25° E
+
+principles:
+  - number: "01"
+    title: Leg er alvor
+    text: Beredskab behøver ikke være tørt, dystert eller dyrt.
+  - number: "02"
+    title: Alle kan være med
+    text: Børn og voksne. Hænder og hoveder. Nysgerrighed før forkundskaber.
+  - number: "03"
+    title: Øv det sammen
+    text: Det er lettere at klare modgang, når man kender sin nabo.
+  - number: "04"
+    title: Byg lokalt, del globalt
+    text: Hver celle finder sin rytme. Identiteten og venskaberne deler vi.
+
+scenarios:
+  index: 01 / Scenarier
+  heading:
+    before: Vi forbereder os på
+    emphasis: det næstværste.
+  intro: Ikke dommedag. Men de dage, uger eller måneder hvor strøm, net og forsyninger bliver en udfordring. Den slags kan håndteres — hvis man har øvet sig lidt og kender sin nabo.
+  cards:
+    - time: Dage
+      number: "01"
+      title: Uden strøm
+      text: Vi laver mad over bål, lyser med andet end kontakten og holder varmen sammen.
+      tags:
+        - Bål
+        - Mad
+        - Varme
+    - time: En uge
+      number: "02"
+      title: Uden internet
+      text: Radio, mesh-netværk, kort og tydelige aftaler med dem omkring os.
+      tags:
+        - Radio
+        - Mesh
+        - Besked
+    - time: Et halvår
+      number: "03"
+      title: Med pres på forsyninger
+      text: Vi øver os i at dyrke, fermentere, gemme, reparere og dele.
+      tags:
+        - Dyrk
+        - Del
+        - Reparer
+  note: Det handler ikke om at frygte fremtiden. Det handler om at være lidt mere klar til den.
+
+activities:
+  index: 02 / Aktiviteter
+  heading:
+    before: Fire måder at
+    emphasis: øve sig
+    after: på.
+  intro: Vi mødes i et fast lokale, i naturen og i leg. Nogle gange med værktøj i hånden. Andre gange med en radio, et kort eller en historie.
+  cards:
+    - className: activity-workshops
+      icon: workshop
+      format: Format 01
+      title: Workshops
+      text: "Aftener hvor vi bygger noget konkret sammen: solcellelader, mesh-radio, fermenteringskrukke eller en brødovn af ler."
+      detail: Børn får ofte deres egen sideopgave.
+    - className: activity-camps
+      icon: camp
+      format: Format 02
+      title: Lejre
+      text: Weekender hvor vi øver hele scenarier som leg. En lørdag uden strøm. En søndag uden GPS.
+      detail: Telte, bål, radio og stjernekort.
+    - className: activity-training
+      icon: training
+      format: Format 03
+      title: Løbende træning
+      text: Fast ugentlig rytme med gymnastik, løb og rullende moduler i fysisk og digital førstehjælp.
+      detail: Kroppen skal kunne mere end at sidde foran en skærm.
+    - className: activity-games
+      icon: game
+      format: Format 04
+      title: Spil
+      text: "Rollespil og capture-the-flag, fysisk og digitalt. Scenariet kan være: “Bydelen har været uden net i tre dage — hvad gør vi?”"
+      detail: Vi spiller os klogere.
+
+hybrid:
+  index: 03 / Hybrid Cleverness
+  heading:
+    before: Gammel viden møder
+    emphasis: nye værktøjer.
+  intro: Vi står på skuldrene af spejderbevægelsen, hackerkulturen, den frivillige beredskabstradition, den grønne omstilling og det decentrale net. Ikke som modsætninger — som værktøjer i samme kasse.
+  pairs:
+    - left: Spejder
+      right: Hackerspace
+    - left: Solceller
+      right: Snilde
+    - left: Hænder
+      right: Hoveder
+    - left: Lokal celle
+      right: Globalt fællesskab
+  quote: Hybrid Cleverness er ikke en app. Det er evnen til at bruge hovedet, hænderne og hinanden, når det gælder.
+
+join:
+  index: 04 / Fællesskab
+  heading:
+    before: Nysgerrighed er den eneste
+    emphasis: adgangsbillet.
+  lead: GIHC er for familier og enkeltpersoner i alle aldre. Man behøver ikke kunne noget på forhånd — kun have lyst til at prøve.
+  points:
+    - label: Børn og voksne
+      text: lærer bedst sammen.
+    - label: Børn deltager
+      text: sammen med en voksen.
+    - label: Vi starter lokalt
+      text: og deler materialer og venskaber på tværs.
+  github:
+    label: Følg arbejdet på GitHub
+    href: https://github.com/gihc-org
+  download:
+    url: /assets/gihc-badge-75mm.zip
+    filename: gihc-badge-75mm.zip
+    kicker: Broderi & spejdermærke
+    title: Download mærkepakken
+    meta: 75 mm · SVG, 1:1 PDF og farvekort · 0,6 MB
+  contact:
+    kicker: Kontakt
+    title: Har du lyst til at være med?
+    emailLabel: E-mail
+    email: kristian.n.jensen@gmail.com
+    emailHref: "mailto:kristian.n.jensen@gmail.com"
+    phoneLabel: Telefon
+    phone: "+45 52 69 94 43"
+    phoneHref: "tel:+4552699443"
+
+manifesto:
+  index: Manifest / kort version
+  heading:
+    before: Det skal være sjovt at være
+    emphasis: beredt.
+  columns:
+    - title: Vi tror på
+      items:
+        - Leg er den hurtigste vej til læring.
+        - Børn og voksne lærer bedst sammen.
+        - Man kan øve modstandskraft uden at være dyster.
+    - title: Vi øver os i
+      items:
+        - At lodde, bygge og reparere.
+        - At kommunikere, når nettet falder.
+        - At spille os klogere.
+  stamp:
+    - Lidt grønnere
+    - Lidt mere crypto
+    - Lidt mere sammen
+
+footer:
+  tagline: En forening, der gør modstandsdygtighed sjov.
+  credit: Logo af Eva & Peter Nygaard
+  links:
+    - label: Til toppen ↑
+      href: "#main"
+    - label: GitHub ↗
+      href: https://github.com/gihc-org
+

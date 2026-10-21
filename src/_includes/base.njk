@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="{{ site.meta.lang }}">
+<head>
+  {% set canonicalUrl = canonical or (site.meta.siteUrl + page.url) %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title or site.meta.title }}</title>
+  <meta name="description" content="{{ description or site.meta.description }}">
+  <meta name="theme-color" content="{{ site.meta.themeColor }}">
+  {% if robots %}<meta name="robots" content="{{ robots }}">{% endif %}
+  {% if noCanonical != true %}<link rel="canonical" href="{{ canonicalUrl }}">{% endif %}
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="da_DK">
+  <meta property="og:title" content="{{ ogTitle or title or site.meta.socialTitle }}">
+  <meta property="og:description" content="{{ ogDescription or site.meta.socialDescription }}">
+  <meta property="og:image" content="{{ site.meta.socialImage }}">
+  <meta property="og:image:alt" content="{{ site.meta.socialImageAlt }}">
+  {% if noCanonical != true %}<meta property="og:url" content="{{ canonicalUrl }}">{% endif %}
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body{% if bodyClass %} class="{{ bodyClass }}"{% endif %}>
+  <a class="skip-link" href="#main">Spring til indhold</a>
+
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="GIHC, gå til forsiden">
+      <img class="brand-logo" src="{{ site.brand.logo }}" width="1254" height="1254" alt="" decoding="async">
+      <span class="brand-name">{{ site.brand.nameLine1 }}<br>{{ site.brand.nameLine2 }}</span>
+    </a>
+    {% if showNavigation != false %}
+      <nav class="site-nav" aria-label="Hovednavigation">
+        {% for item in site.nav %}
+          <a href="{{ item.href }}"{% if item.className %} class="{{ item.className }}"{% endif %}>{{ item.label }}</a>
+        {% endfor %}
+      </nav>
+    {% endif %}
+  </header>
+
+  {{ content | safe }}
+
+  {% if showFooter != false %}
+    <footer class="site-footer">
+      <div class="footer-brand">
+        <strong>GIHC</strong>
+        <span>{{ site.brand.nameLine1 }}<br>{{ site.brand.nameLine2 }}</span>
+      </div>
+      <p>
+        {{ site.footer.tagline }}
+        <span class="logo-credit">{{ site.footer.credit }}</span>
+      </p>
+      <div class="footer-links">
+        {% for item in site.footer.links %}
+          <a href="{{ item.href }}">{{ item.label }}</a>
+        {% endfor %}
+      </div>
+    </footer>
+  {% endif %}
+</body>
+</html>
+

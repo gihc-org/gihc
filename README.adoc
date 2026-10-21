@@ -12,15 +12,21 @@ include::manifest.adoc[]
 
 == Hjemmeside
 
-Hjemmesiden ligger i `site/` og serveres som statiske filer fra en
-Nginx-container. Hovedlogoet er en ren SVG med vektorstier og uden indlejret
-bitmap; WebP-varianten bruges til sociale delingsbilleder.
+Hjemmesiden genereres med Eleventy fra `src/` og serveres som statiske filer
+fra en Nginx-container. Almindeligt indhold som tekster, aktiviteter, kontakt
+og links redigeres i `src/_data/site.yaml`. Layoutet ligger i
+`src/index.njk` og `src/_includes/`. Hovedlogoet er en ren SVG med vektorstier
+og uden indlejret bitmap; WebP-varianten bruges til sociale delingsbilleder.
 Kubernetes-manifesterne ligger i `k8s/`.
 
 [source,bash]
 ----
 # Lokal forhåndsvisning
-python3 -m http.server 8080 --directory site
+npm ci
+npm run dev
+
+# Byg og kontrollér den statiske side
+npm run check
 
 # Byg container lokalt
 docker build -t ghcr.io/gihc-org/gihc:latest .
@@ -77,3 +83,8 @@ Der findes en separat 75 mm mærkepakke i `artwork/gihc-badge/` med
 broderivenlig color-SVG, A4-syskabelon, skære- og foldelinjer samt farvekort.
 Pakken kan downloades på https://gihc.online/assets/gihc-badge-75mm.zip.
 Se `artwork/gihc-badge/README.md` for mål, fremstilling og maskinbroderi.
+
+=== Redigering
+
+Se `WEBSITE.md` for lokal forhåndsvisning, redigering af `site.yaml`,
+kontrol af links og assets samt byg og deploy.
