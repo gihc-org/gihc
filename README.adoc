@@ -70,3 +70,9 @@ samme rollback-mønster som `loft-prod`:
 ----
 IMAGE=ghcr.io/gihc-org/gihc:<commit-sha> ./scripts/deploy.sh
 ----
+
+=== Spejdermærke og broderi
+
+Der findes en separat 75 mm mærkepakke i `artwork/gihc-badge/` med
+broderivenlig color-SVG, A4-syskabelon, skære- og foldelinjer samt farvekort.
+Se `artwork/gihc-badge/README.md` for mål, fremstilling og maskinbroderi.
