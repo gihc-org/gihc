@@ -6,6 +6,10 @@ set -euo pipefail
 # k3s API'et er ikke offentligt tilgængeligt. Åbn SSH-tunnelen først:
 #   ssh -L 6443:localhost:6443 -N -f root@65.109.233.92
 #
+# På udviklingsmaskinen er 6443 optaget af et lokalt k3s-cluster. Brug derfor:
+#   ssh -L 16443:localhost:6443 -N -f hetzner-k3s
+#   KUBECTL_SERVER=https://127.0.0.1:16443 ./scripts/deploy.sh
+#
 # Brug:
 #   ./scripts/deploy.sh
 #   IMAGE=ghcr.io/gihc-org/gihc:latest ./scripts/deploy.sh

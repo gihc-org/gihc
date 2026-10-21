@@ -29,8 +29,18 @@ ssh -L 6443:localhost:6443 -N -f root@65.109.233.92
 ./scripts/deploy.sh
 ----
 
-Hvis port 6443 allerede bruges af et lokalt k3s-cluster, kan tunnelen i stedet
-åbnes på 16443 og deployes med:
+NOTE: På udviklingsmaskinen er port 6443 allerede optaget af det lokale
+k3s-cluster. VPS-tunnelen skal derfor bruge 16443; ellers forsøger `kubectl`
+at tale med det lokale cluster, og kubeconfig-certifikatet passer ikke.
+
+Kontrollér en eventuel konflikt med:
+
+[source,bash]
+----
+ss -ltnp | grep 6443
+----
+
+Åbn VPS-tunnelen på den ledige port og deploy:
 
 [source,bash]
 ----
