@@ -154,13 +154,13 @@ svg {
   box-shadow: 1px 1px 0 var(--ink);
 }
 
-.site-nav .language-switch {
+.site-nav a.language-switch {
   border: 1px solid var(--ink);
   padding: 0.52rem 0.65rem;
   font-weight: 700;
 }
 
-.site-nav .language-switch:hover {
+.site-nav a.language-switch:hover {
   border-bottom-color: var(--ink);
   background: var(--paper-deep);
 }
