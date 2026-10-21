@@ -14,10 +14,12 @@
 >
 > - Siden genereres med Eleventy 3.1.7 fra `src/` og outputtet ligger i
 >   `_site/`. `_site/` er genereret og må ikke redigeres manuelt.
-> - Redaktionelt indhold, navigation, kontaktoplysninger og downloadlink
->   ligger i `src/_data/site.yaml`.
+> - Dansk redaktionelt indhold ligger i `src/_data/da.yaml`, og engelsk
+>   indhold ligger i `src/_data/en.yaml`.
 > - Fælles HTML og metadata ligger i `src/_includes/base.njk`.
-> - Forsiden ligger i `src/index.njk`, og 404-siden i `src/404.njk`.
+> - Forsidens fælles sektioner ligger i `src/_includes/home.njk`.
+> - Dansk forside ligger i `src/index.njk`, engelsk i `src/en/index.njk`,
+>   og 404-siden i `src/404.njk`.
 > - Styles og statiske filer ligger i `src/assets/`.
 > - `Dockerfile` bruger et Node 24-buildtrin og kopierer derefter det
 >   statiske Eleventy-output til det eksisterende unprivileged Nginx-image.
@@ -61,8 +63,8 @@
 >
 > - Bevar det nuværende visuelle udtryk, medmindre brugeren udtrykkeligt beder
 >   om et redesign.
-> - Foretag almindelige tekstændringer i `src/_data/site.yaml`, ikke i genereret
->   HTML.
+> - Foretag almindelige tekstændringer i både `src/_data/da.yaml` og
+>   `src/_data/en.yaml`, ikke i genereret HTML.
 > - Kør `npm run check` efter indholds-, template- eller assetændringer.
 > - Test både desktop og mobil ved cirka 1440 px og 390 px.
 > - Bevar CSP, sikkerhedsheadere, health checks, non-root-container og
@@ -72,7 +74,8 @@
 >
 > **Deploy ved indholdsændringer**
 >
-> 1. Redigér `src/_data/site.yaml` eller relevante template-/asset-filer.
+> 1. Redigér `src/_data/da.yaml` og `src/_data/en.yaml` eller relevante
+>    template-/asset-filer.
 > 2. Kør `npm run check`.
 > 3. Commit og push til `main`.
 > 4. Kontrollér, at GitHub Actions-workflowet “Publish website image” bliver
@@ -88,8 +91,8 @@
 >   skridt.
 > - Afklar forsikring, børneattester og persondata, før der aftales fælles
 >   aktiviteter med børn og familier.
-> - Hvis der tilføjes nye gentagne sektioner, skal de bygges som data i
->   `site.yaml` og vises via en løkke i `index.njk` frem for kopieret HTML.
+> - Hvis der tilføjes nye gentagne sektioner, skal de bygges som data i begge
+>   sprogfiler og vises via en løkke i `home.njk` frem for kopieret HTML.
 > - Hvis mærkepakken ændres, skal den kanoniske kilde i `artwork/gihc-badge/`
 >   opdateres, ZIP-filen genbygges og kopieres til
 >   `src/assets/gihc-badge-75mm.zip`.

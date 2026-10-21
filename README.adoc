@@ -14,9 +14,10 @@ include::manifest.adoc[]
 
 Hjemmesiden genereres med Eleventy fra `src/` og serveres som statiske filer
 fra en Nginx-container. Almindeligt indhold som tekster, aktiviteter, kontakt
-og links redigeres i `src/_data/site.yaml`. Layoutet ligger i
-`src/index.njk` og `src/_includes/`. Hovedlogoet er en ren SVG med vektorstier
-og uden indlejret bitmap; WebP-varianten bruges til sociale delingsbilleder.
+og links redigeres i `src/_data/da.yaml` og `src/_data/en.yaml`. Den danske
+forside ligger på `/`, den engelske på `/en/`, og layoutet deles via
+`src/_includes/home.njk`. Hovedlogoet er en ren SVG med vektorstier og uden
+indlejret bitmap; WebP-varianten bruges til sociale delingsbilleder.
 Kubernetes-manifesterne ligger i `k8s/`.
 
 [source,bash]
@@ -86,5 +87,5 @@ Se `artwork/gihc-badge/README.md` for mål, fremstilling og maskinbroderi.
 
 === Redigering
 
-Se `WEBSITE.md` for lokal forhåndsvisning, redigering af `site.yaml`,
-kontrol af links og assets samt byg og deploy.
+Se `WEBSITE.md` for lokal forhåndsvisning, redigering af de danske og engelske
+datafiler, kontrol af links og assets samt byg og deploy.

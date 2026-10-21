@@ -1,0 +1,168 @@
+{% from "activity-icon.njk" import icon %}
+<main id="main">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <p class="eyebrow">
+        <span class="eyebrow-badge">{{ copy.hero.eyebrowBadge }}</span>
+        <span class="eyebrow-note">{{ copy.hero.eyebrowNote }}</span>
+      </p>
+      <h1 id="hero-title">
+        {% for line in copy.hero.titleLines %}
+          <span{% if line.className %} class="{{ line.className }}"{% endif %}>{{ line.text }}</span>
+        {% endfor %}
+      </h1>
+      <p class="hero-intro">{{ copy.hero.intro }}</p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="{{ copy.hero.primaryAction.href }}">
+          {{ copy.hero.primaryAction.label }}
+          <span aria-hidden="true">{{ copy.hero.primaryAction.icon }}</span>
+        </a>
+        <a class="text-link" href="{{ copy.hero.secondaryAction.href }}">{{ copy.hero.secondaryAction.label }} <span aria-hidden="true">{{ copy.hero.secondaryAction.icon }}</span></a>
+      </div>
+      <ul class="hero-facts" aria-label="Kort om GIHC">
+        {% for fact in copy.hero.facts %}<li>{{ fact }}</li>{% endfor %}
+      </ul>
+    </div>
+
+    <div class="hero-poster" aria-hidden="true">
+      <span class="poster-note poster-note-top">{{ copy.hero.poster.note }}</span>
+      <span class="poster-cross poster-cross-left">+</span>
+      <span class="poster-cross poster-cross-right">+</span>
+      <img class="poster-emblem" src="{{ copy.brand.logo }}" width="1254" height="1254" alt="" decoding="async">
+      <div class="poster-legend">
+        {% for item in copy.hero.poster.legend %}<span>{{ item }}</span>{% endfor %}
+      </div>
+      <span class="poster-coordinate">{{ copy.hero.poster.coordinate }}</span>
+    </div>
+  </section>
+
+  <section class="principles" aria-label="Vores udgangspunkt">
+    {% for principle in copy.principles %}
+      <article>
+        <span class="principle-number">{{ principle.number }}</span>
+        <h2>{{ principle.title }}</h2>
+        <p>{{ principle.text }}</p>
+      </article>
+    {% endfor %}
+  </section>
+
+  <section class="scenarios" id="det-naestvaerste" aria-labelledby="scenarios-title">
+    <div class="section-heading section-heading-dark">
+      <p class="section-index">{{ copy.scenarios.index }}</p>
+      <h2 id="scenarios-title">{{ copy.scenarios.heading.before }} <em>{{ copy.scenarios.heading.emphasis }}</em></h2>
+      <p>{{ copy.scenarios.intro }}</p>
+    </div>
+    <div class="scenario-grid">
+      {% for card in copy.scenarios.cards %}
+        <article class="scenario-card">
+          <p class="scenario-time"><span>{{ card.time }}</span><span>{{ card.number }}</span></p>
+          <h3>{{ card.title }}</h3>
+          <p>{{ card.text }}</p>
+          <div class="scenario-tags">
+            {% for tag in card.tags %}<span>{{ tag }}</span>{% endfor %}
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+    <p class="scenarios-note"><span aria-hidden="true">✳</span>{{ copy.scenarios.note }}</p>
+  </section>
+
+  <section class="activities" id="aktiviteter" aria-labelledby="activities-title">
+    <div class="section-heading">
+      <p class="section-index">{{ copy.activities.index }}</p>
+      <h2 id="activities-title">{{ copy.activities.heading.before }} <em>{{ copy.activities.heading.emphasis }}</em>{% if copy.activities.heading.after %}{{ copy.activities.heading.after }}{% endif %}</h2>
+      <p>{{ copy.activities.intro }}</p>
+    </div>
+    <div class="activity-grid">
+      {% for activity in copy.activities.cards %}
+        <article class="activity-card {{ activity.className }}">
+          <div class="activity-topline">
+            <span>{{ activity.format }}</span>
+            {{ icon(activity.icon) }}
+          </div>
+          <h3>{{ activity.title }}</h3>
+          <p>{{ activity.text }}</p>
+          <p class="activity-detail">{{ activity.detail }}</p>
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="hybrid" id="hybrid" aria-labelledby="hybrid-title">
+    <div class="section-heading section-heading-dark">
+      <p class="section-index">{{ copy.hybrid.index }}</p>
+      <h2 id="hybrid-title">{{ copy.hybrid.heading.before }} <em>{{ copy.hybrid.heading.emphasis }}</em></h2>
+      <p>{{ copy.hybrid.intro }}</p>
+    </div>
+    <div class="hybrid-pairs" role="list" aria-label="Fire forbindelser">
+      {% for pair in copy.hybrid.pairs %}
+        <article role="listitem">
+          <span>{{ pair.left }}</span>
+          <strong aria-hidden="true">×</strong>
+          <span>{{ pair.right }}</span>
+        </article>
+      {% endfor %}
+    </div>
+    <div class="hybrid-quote">
+      <span aria-hidden="true">“</span>
+      <blockquote>{{ copy.hybrid.quote }}</blockquote>
+    </div>
+  </section>
+
+  <section class="join" id="vaer-med" aria-labelledby="join-title">
+    <div class="join-heading">
+      <p class="section-index">{{ copy.join.index }}</p>
+      <h2 id="join-title">{{ copy.join.heading.before }} <em>{{ copy.join.heading.emphasis }}</em></h2>
+    </div>
+    <div class="join-copy">
+      <p class="join-lead">{{ copy.join.lead }}</p>
+      <ul>
+        {% for point in copy.join.points %}
+          <li><span>{{ point.label }}</span> {{ point.text }}</li>
+        {% endfor %}
+      </ul>
+      <div class="join-actions">
+        <a class="button button-dark" href="{{ copy.join.github.href }}">
+          {{ copy.join.github.label }}
+          <span aria-hidden="true">↗</span>
+        </a>
+        <a class="download-card" href="{{ copy.join.download.url }}" download="{{ copy.join.download.filename }}" type="application/zip">
+          <span class="download-icon" aria-hidden="true">↓</span>
+          <span class="download-copy">
+            <span class="download-kicker">{{ copy.join.download.kicker }}</span>
+            <strong>{{ copy.join.download.title }}</strong>
+            <span class="download-meta">{{ copy.join.download.meta }}</span>
+          </span>
+          <span class="download-arrow" aria-hidden="true">↘</span>
+        </a>
+        <address class="contact-card" aria-labelledby="contact-title">
+          <span class="contact-kicker">{{ copy.join.contact.kicker }}</span>
+          <strong id="contact-title">{{ copy.join.contact.title }}</strong>
+          <div class="contact-links">
+            <a href="{{ copy.join.contact.emailHref }}"><span>{{ copy.join.contact.emailLabel }}</span>{{ copy.join.contact.email }}</a>
+            <a href="{{ copy.join.contact.phoneHref }}"><span>{{ copy.join.contact.phoneLabel }}</span>{{ copy.join.contact.phone }}</a>
+          </div>
+        </address>
+      </div>
+    </div>
+  </section>
+
+  <section class="manifesto" aria-labelledby="manifesto-title">
+    <p class="section-index">{{ copy.manifesto.index }}</p>
+    <h2 id="manifesto-title">{{ copy.manifesto.heading.before }} <em>{{ copy.manifesto.heading.emphasis }}</em></h2>
+    <div class="manifesto-columns">
+      {% for column in copy.manifesto.columns %}
+        <div>
+          <h3>{{ column.title }}</h3>
+          <ul>{% for item in column.items %}<li>{{ item }}</li>{% endfor %}</ul>
+        </div>
+      {% endfor %}
+      <div class="manifesto-stamp" aria-label="{{ copy.manifesto.stamp[0] }}, {{ copy.manifesto.stamp[1] }}, {{ copy.manifesto.stamp[2] }}">
+        <span>{{ copy.manifesto.stamp[0] }}</span>
+        <span>{{ copy.manifesto.stamp[1] }}</span>
+        <strong>{{ copy.manifesto.stamp[2] }}</strong>
+      </div>
+    </div>
+  </section>
+</main>
+

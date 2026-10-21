@@ -1,5 +1,18 @@
+locale: da
+path: /
+languageSwitch:
+  label: English
+  lang: en
+  href: /en/
+  ariaLabel: Switch to English
+ui:
+  skipLink: Spring til indhold
+  homeLabel: GIHC, gå til forsiden
+  navigationLabel: Hovednavigation
+
 meta:
   lang: da
+  ogLocale: da_DK
   title: GIHC — Global Institute of Hybrid Cleverness
   description: GIHC er en forening, der gør modstandsdygtighed sjov. Vi forbereder os på det næstværste — med leg, hænder, hoveder og hinanden.
   themeColor: "#f3eddd"
@@ -108,7 +121,7 @@ activities:
   heading:
     before: Fire måder at
     emphasis: øve sig
-    after: på.
+    after: " på."
   intro: Vi mødes i et fast lokale, i naturen og i leg. Nogle gange med værktøj i hånden. Andre gange med en radio, et kort eller en historie.
   cards:
     - className: activity-workshops

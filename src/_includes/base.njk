@@ -1,38 +1,47 @@
 <!doctype html>
-<html lang="{{ site.meta.lang }}">
+{% if locale == "en" %}
+  {% set copy = en %}
+{% else %}
+  {% set copy = da %}
+{% endif %}
+<html lang="{{ copy.meta.lang }}">
 <head>
-  {% set canonicalUrl = canonical or (site.meta.siteUrl + page.url) %}
+  {% set canonicalUrl = canonical or (copy.meta.siteUrl + page.url) %}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ title or site.meta.title }}</title>
-  <meta name="description" content="{{ description or site.meta.description }}">
-  <meta name="theme-color" content="{{ site.meta.themeColor }}">
+  <title>{{ title or copy.meta.title }}</title>
+  <meta name="description" content="{{ description or copy.meta.description }}">
+  <meta name="theme-color" content="{{ copy.meta.themeColor }}">
   {% if robots %}<meta name="robots" content="{{ robots }}">{% endif %}
   {% if noCanonical != true %}<link rel="canonical" href="{{ canonicalUrl }}">{% endif %}
   <meta property="og:type" content="website">
-  <meta property="og:locale" content="da_DK">
-  <meta property="og:title" content="{{ ogTitle or title or site.meta.socialTitle }}">
-  <meta property="og:description" content="{{ ogDescription or site.meta.socialDescription }}">
-  <meta property="og:image" content="{{ site.meta.socialImage }}">
-  <meta property="og:image:alt" content="{{ site.meta.socialImageAlt }}">
+  <meta property="og:locale" content="{{ copy.meta.ogLocale }}">
+  <meta property="og:title" content="{{ ogTitle or title or copy.meta.socialTitle }}">
+  <meta property="og:description" content="{{ ogDescription or copy.meta.socialDescription }}">
+  <meta property="og:image" content="{{ copy.meta.socialImage }}">
+  <meta property="og:image:alt" content="{{ copy.meta.socialImageAlt }}">
   {% if noCanonical != true %}<meta property="og:url" content="{{ canonicalUrl }}">{% endif %}
   <meta name="twitter:card" content="summary_large_image">
+  <link rel="alternate" hreflang="da" href="{{ copy.meta.siteUrl }}/">
+  <link rel="alternate" hreflang="en" href="{{ copy.meta.siteUrl }}/en/">
+  <link rel="alternate" hreflang="x-default" href="{{ copy.meta.siteUrl }}/">
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/assets/styles.css">
 </head>
 <body{% if bodyClass %} class="{{ bodyClass }}"{% endif %}>
-  <a class="skip-link" href="#main">Spring til indhold</a>
+  <a class="skip-link" href="#main">{{ copy.ui.skipLink }}</a>
 
   <header class="site-header">
-    <a class="brand" href="/" aria-label="GIHC, gå til forsiden">
-      <img class="brand-logo" src="{{ site.brand.logo }}" width="1254" height="1254" alt="" decoding="async">
-      <span class="brand-name">{{ site.brand.nameLine1 }}<br>{{ site.brand.nameLine2 }}</span>
+    <a class="brand" href="{{ copy.path }}" aria-label="{{ copy.ui.homeLabel }}">
+      <img class="brand-logo" src="{{ copy.brand.logo }}" width="1254" height="1254" alt="" decoding="async">
+      <span class="brand-name">{{ copy.brand.nameLine1 }}<br>{{ copy.brand.nameLine2 }}</span>
     </a>
     {% if showNavigation != false %}
-      <nav class="site-nav" aria-label="Hovednavigation">
-        {% for item in site.nav %}
+      <nav class="site-nav" aria-label="{{ copy.ui.navigationLabel }}">
+        {% for item in copy.nav %}
           <a href="{{ item.href }}"{% if item.className %} class="{{ item.className }}"{% endif %}>{{ item.label }}</a>
         {% endfor %}
+        <a class="language-switch" href="{{ copy.languageSwitch.href }}" lang="{{ copy.languageSwitch.lang }}" hreflang="{{ copy.languageSwitch.lang }}" aria-label="{{ copy.languageSwitch.ariaLabel }}">{{ copy.languageSwitch.label }} <span aria-hidden="true">↗</span></a>
       </nav>
     {% endif %}
   </header>
@@ -43,14 +52,14 @@
     <footer class="site-footer">
       <div class="footer-brand">
         <strong>GIHC</strong>
-        <span>{{ site.brand.nameLine1 }}<br>{{ site.brand.nameLine2 }}</span>
+        <span>{{ copy.brand.nameLine1 }}<br>{{ copy.brand.nameLine2 }}</span>
       </div>
       <p>
-        {{ site.footer.tagline }}
-        <span class="logo-credit">{{ site.footer.credit }}</span>
+        {{ copy.footer.tagline }}
+        <span class="logo-credit">{{ copy.footer.credit }}</span>
       </p>
       <div class="footer-links">
-        {% for item in site.footer.links %}
+        {% for item in copy.footer.links %}
           <a href="{{ item.href }}">{{ item.label }}</a>
         {% endfor %}
       </div>

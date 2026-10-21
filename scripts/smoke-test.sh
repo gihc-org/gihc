@@ -20,6 +20,7 @@ fail() {
 echo "==> Tester ${BASE_URL}"
 
 curl -fsS --max-time 20 "${BASE_URL}/" -o "${TMP_DIR}/index.html"
+curl -fsS --max-time 20 "${BASE_URL}/en/" -o "${TMP_DIR}/index-en.html"
 curl -fsS --max-time 20 "${BASE_URL}/assets/gihc-emblem.svg" \
     -o "${TMP_DIR}/logo.svg" \
     -D "${TMP_DIR}/logo-headers.txt"
@@ -44,6 +45,14 @@ grep -q 'mailto:kristian.n.jensen@gmail.com' "${TMP_DIR}/index.html" \
     || fail "e-mailkontakt mangler"
 grep -q 'tel:+4552699443' "${TMP_DIR}/index.html" \
     || fail "telefonkontakt mangler"
+grep -q '<html lang="en">' "${TMP_DIR}/index-en.html" \
+    || fail "engelsk sprogkode mangler"
+grep -q 'The association for playful preparedness' "${TMP_DIR}/index-en.html" \
+    || fail "engelsk hero-tekst mangler"
+grep -q 'href="/"' "${TMP_DIR}/index-en.html" \
+    || fail "sprogskift til dansk mangler"
+grep -q 'href="/en/"' "${TMP_DIR}/index.html" \
+    || fail "sprogskift til engelsk mangler"
 grep -qi '^content-type: application/zip' "${TMP_DIR}/download-headers.txt" \
     || fail "mærkepakken serveres ikke som application/zip"
 [ "$(head -c 2 "${TMP_DIR}/gihc-badge-75mm.zip")" = "PK" ] \
@@ -71,5 +80,5 @@ if [[ "$BASE_URL" == https://* ]]; then
         || fail "TLS-certifikatet kunne ikke verificeres"
 fi
 
-echo "PASS: forside, vektorlogo, mærkedownload, kontaktlinks, health, 404, sikkerhedsheadere og TLS er OK"
+echo "PASS: dansk og engelsk forside, sprogskift, vektorlogo, mærkedownload, kontaktlinks, health, 404, sikkerhedsheadere og TLS er OK"
 

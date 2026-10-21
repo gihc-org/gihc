@@ -1,0 +1,230 @@
+locale: en
+path: /en/
+languageSwitch:
+  label: Dansk
+  lang: da
+  href: /
+  ariaLabel: Skift til dansk
+ui:
+  skipLink: Skip to content
+  homeLabel: GIHC, go to the home page
+  navigationLabel: Main navigation
+
+meta:
+  lang: en
+  ogLocale: en_GB
+  title: GIHC — Global Institute of Hybrid Cleverness
+  description: GIHC is an association that makes resilience fun. We prepare for the second-worst — with play, hands, heads and one another.
+  themeColor: "#f3eddd"
+  siteUrl: https://gihc.online
+  socialTitle: GIHC — Global Institute of Hybrid Cleverness
+  socialDescription: A little greener. A little more crypto. A little more together.
+  socialImage: https://gihc.online/assets/gihc-emblem.webp
+  socialImageAlt: The GIHC emblem with a campfire, tent, solar panels, radio and trees
+
+brand:
+  nameLine1: Global Institute
+  nameLine2: of Hybrid Cleverness
+  logo: /assets/gihc-emblem.svg
+
+nav:
+  - label: The second-worst
+    href: "#det-naestvaerste"
+  - label: Activities
+    href: "#aktiviteter"
+  - label: Hybrid Cleverness
+    href: "#hybrid"
+  - label: Join in
+    href: "#vaer-med"
+    className: nav-cta
+
+hero:
+  eyebrowBadge: The association for playful preparedness
+  eyebrowNote: "· Est. on Earth"
+  titleLines:
+    - text: A little greener.
+    - text: A little more crypto.
+    - text: A little more together.
+      className: hero-emphasis
+  intro: GIHC makes resilience fun. Together we prepare for the second-worst — with campfires, solar power, first aid, mesh radio and room to laugh when the plan falls apart.
+  primaryAction:
+    label: See what we do
+    href: "#aktiviteter"
+    icon: "↘"
+  secondaryAction:
+    label: For families and curious minds
+    href: "#vaer-med"
+    icon: "→"
+  facts:
+    - All ages
+    - No experience needed
+    - Learn through play
+  poster:
+    note: Field note 001
+    legend:
+      - Head
+      - "×"
+      - Hands
+      - "×"
+      - Togetherness
+    coordinate: 60° N / 25° E
+
+principles:
+  - number: "01"
+    title: Play is serious
+    text: Preparedness does not have to be dry, gloomy or expensive.
+  - number: "02"
+    title: Everyone can join
+    text: Children and adults. Hands and heads. Curiosity before qualifications.
+  - number: "03"
+    title: Practise together
+    text: It is easier to handle hardship when you know your neighbour.
+  - number: "04"
+    title: Build locally, share globally
+    text: Each cell finds its own rhythm. We share the identity and the friendships.
+
+scenarios:
+  index: 01 / Scenarios
+  heading:
+    before: We prepare for
+    emphasis: the second-worst.
+  intro: Not doomsday. But the days, weeks or months when power, connectivity and supplies become a challenge. These situations can be managed if we have practised a little and know our neighbours.
+  cards:
+    - time: Days
+      number: "01"
+      title: Without power
+      text: We cook over fire, light our homes without the switch and stay warm together.
+      tags:
+        - Fire
+        - Food
+        - Warmth
+    - time: One week
+      number: "02"
+      title: Without internet
+      text: Radio, mesh networks, maps and clear agreements with the people around us.
+      tags:
+        - Radio
+        - Mesh
+        - Messaging
+    - time: Six months
+      number: "03"
+      title: Under supply pressure
+      text: We practise growing, fermenting, storing, repairing and sharing.
+      tags:
+        - Grow
+        - Share
+        - Repair
+  note: It is not about fearing the future. It is about being a little more ready for it.
+
+activities:
+  index: 02 / Activities
+  heading:
+    before: Four ways to
+    emphasis: practise
+    after: "."
+  intro: We meet in a regular venue, outdoors and through play. Sometimes with tools in hand. Other times with a radio, a map or a story.
+  cards:
+    - className: activity-workshops
+      icon: workshop
+      format: Format 01
+      title: Workshops
+      text: "Evenings where we build something tangible together: a solar charger, mesh radio, fermentation jar or a clay bread oven."
+      detail: Children often get their own side mission.
+    - className: activity-camps
+      icon: camp
+      format: Format 02
+      title: Camps
+      text: Weekends where we rehearse whole scenarios through play. A Saturday without power. A Sunday without GPS.
+      detail: Tents, fire, radio and star maps.
+    - className: activity-training
+      icon: training
+      format: Format 03
+      title: Ongoing training
+      text: A regular weekly rhythm with gymnastics, running and rotating modules in physical and digital first aid.
+      detail: Our bodies should be able to do more than sit in front of a screen.
+    - className: activity-games
+      icon: game
+      format: Format 04
+      title: Games
+      text: "Role-playing and capture the flag, physical and digital. The scenario might be: “The neighbourhood has been offline for three days — what do we do?”"
+      detail: We play ourselves wiser.
+
+hybrid:
+  index: 03 / Hybrid Cleverness
+  heading:
+    before: Old knowledge meets
+    emphasis: new tools.
+  intro: We stand on the shoulders of the scout movement, hacker culture, the volunteer preparedness tradition, the green transition and decentralised networks. Not as contradictions — but as tools in the same toolbox.
+  pairs:
+    - left: Scout
+      right: Hackerspace
+    - left: Solar panels
+      right: Resourcefulness
+    - left: Hands
+      right: Heads
+    - left: Local cell
+      right: Global community
+  quote: Hybrid Cleverness is not an app. It is the ability to use our heads, hands and one another when it matters.
+
+join:
+  index: 04 / Community
+  heading:
+    before: Curiosity is the only
+    emphasis: ticket you need.
+  lead: GIHC is for families and individuals of all ages. You do not need any prior knowledge — only a willingness to try.
+  points:
+    - label: Children and adults
+      text: learn best together.
+    - label: Children take part
+      text: with an adult.
+    - label: We start locally
+      text: and share materials and friendships across cells.
+  github:
+    label: Follow the work on GitHub
+    href: https://github.com/gihc-org
+  download:
+    url: /assets/gihc-badge-75mm.zip
+    filename: gihc-badge-75mm.zip
+    kicker: Embroidery & scout badge
+    title: Download the badge package
+    meta: Danish-language package · 75 mm · SVG, 1:1 PDF and colour card · 0.6 MB
+  contact:
+    kicker: Contact
+    title: Would you like to join?
+    emailLabel: Email
+    email: kristian.n.jensen@gmail.com
+    emailHref: "mailto:kristian.n.jensen@gmail.com"
+    phoneLabel: Telephone
+    phone: "+45 52 69 94 43"
+    phoneHref: "tel:+4552699443"
+
+manifesto:
+  index: Manifesto / short version
+  heading:
+    before: It should be fun to be
+    emphasis: prepared.
+  columns:
+    - title: We believe
+      items:
+        - Play is the fastest route to learning.
+        - Children and adults learn best together.
+        - We can practise resilience without being gloomy.
+    - title: We practise
+      items:
+        - Soldering, building and repairing.
+        - Communicating when the network fails.
+        - Playing ourselves wiser.
+  stamp:
+    - A little greener
+    - A little more crypto
+    - A little more together
+
+footer:
+  tagline: An association that makes resilience fun.
+  credit: Logo by Eva & Peter Nygaard
+  links:
+    - label: Back to top ↑
+      href: "#main"
+    - label: GitHub ↗
+      href: https://github.com/gihc-org
+

@@ -21,7 +21,11 @@ npm run dev
 
 ### Almindelige tekstændringer
 
-Redigér `src/_data/site.yaml`. Her ligger:
+Den danske side bruger `src/_data/da.yaml`, og den engelske side bruger
+`src/_data/en.yaml`. Begge filer har samme struktur, så en ændring kan
+oversættes felt for felt.
+
+Her ligger:
 
 - forside, hero og call-to-action
 - scenarier og aktiviteter
@@ -38,7 +42,8 @@ title: "Et eksempel: med kolon"
 
 ### Tilføj en ny aktivitet
 
-Tilføj et element under `activities.cards` i `src/_data/site.yaml`:
+Tilføj et element under `activities.cards` i både `src/_data/da.yaml` og
+`src/_data/en.yaml`:
 
 ```yaml
 - className: activity-workshops
@@ -55,9 +60,23 @@ tilføjes i `src/_includes/activity-icon.njk`.
 ### Ændr layout eller styling
 
 - Overordnet HTML-layout: `src/_includes/base.njk`
-- Forsidens sektioner: `src/index.njk`
+- Fælles sektioner for begge sprog: `src/_includes/home.njk`
+- Dansk forside-wrapper: `src/index.njk`
+- Engelsk forside-wrapper: `src/en/index.njk`
 - 404-siden: `src/404.njk`
 - Farver, typografi og responsivt layout: `src/assets/styles.css`
+
+### Sprog og oversættelser
+
+Internationalisering (i18n) er den tekniske opsætning med fælles templates,
+sprogkoder og alternative links. Lokalisering (l10n) er de konkrete danske
+og engelske tekster i YAML-filerne.
+
+- Dansk: `/` og `src/_data/da.yaml`
+- Engelsk: `/en/` og `src/_data/en.yaml`
+
+Når en ny tekst tilføjes, skal den ind i begge datafiler. `base.njk` opretter
+`lang`-metadata, `hreflang`-links og sprogskifteren automatisk.
 
 ### Opdatér filer og downloads
 
@@ -81,8 +100,9 @@ npm run check
 
 Kommandoen bygger siden og kontrollerer blandt andet:
 
-- at forside og 404-side genereres
+- at den danske forside, engelske forside og 404-side genereres
 - at centrale tekster og kontaktlinks findes
+- at sprogkoder, sprogskifte og `hreflang` findes på begge sider
 - at lokale links og assets eksisterer
 - at mærkepakken er en gyldig ZIP-fil
 - at der ikke er udfyldte Nunjucks-tags tilbage i HTML'en
@@ -117,8 +137,11 @@ docker stop gihc-local
 
 | Fil | Formål |
 | --- | --- |
-| `src/_data/site.yaml` | Alt redaktionelt indhold |
-| `src/index.njk` | Forsidens struktur og gentagelser |
+| `src/_data/da.yaml` | Dansk redaktionelt indhold |
+| `src/_data/en.yaml` | Engelsk redaktionelt indhold |
+| `src/_includes/home.njk` | Forsidens fælles struktur og gentagelser |
+| `src/index.njk` | Dansk forside |
+| `src/en/index.njk` | Engelsk forside |
 | `src/_includes/base.njk` | Fælles HTML, metadata, header og footer |
 | `src/assets/styles.css` | Design og responsivitet |
 | `eleventy.config.js` | Eleventy-konfiguration og asset-kopiering |

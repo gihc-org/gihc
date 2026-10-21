@@ -5,6 +5,7 @@ import path from "node:path";
 const outputDir = "_site";
 const requiredFiles = [
   "index.html",
+  "en/index.html",
   "404.html",
   "assets/styles.css",
   "assets/favicon.svg",
@@ -18,6 +19,7 @@ for (const file of requiredFiles) {
 }
 
 const index = await readFile(path.join(outputDir, "index.html"), "utf8");
+const englishIndex = await readFile(path.join(outputDir, "en/index.html"), "utf8");
 const notFound = await readFile(path.join(outputDir, "404.html"), "utf8");
 
 const expectations = [
@@ -28,8 +30,14 @@ const expectations = [
   ["downloadlink", index.includes('href="/assets/gihc-badge-75mm.zip"')],
   ["e-mailkontakt", index.includes("mailto:kristian.n.jensen@gmail.com")],
   ["telefonkontakt", index.includes("tel:+4552699443")],
+  ["dansk sprogskift", index.includes('href="/en/"') && index.includes('hreflang="en"')],
+  ["engelsk sprogkode", englishIndex.includes('<html lang="en">')],
+  ["engelsk hero", englishIndex.includes("The association for playful preparedness")],
+  ["engelsk indhold", englishIndex.includes("Four ways to") && englishIndex.includes("Without internet")],
+  ["engelsk sprogskift", englishIndex.includes('href="/"') && englishIndex.includes('hreflang="da"')],
+  ["sprogalternativer", index.includes('hreflang="x-default"') && englishIndex.includes('hreflang="x-default"')],
   ["404-indhold", notFound.includes("Denne sti fører ikke hjem. Endnu.")],
-  ["ingen Nunjucks-rester", !index.includes("{{") && !index.includes("{%")]
+  ["ingen Nunjucks-rester", !index.includes("{{") && !index.includes("{%") && !englishIndex.includes("{{") && !englishIndex.includes("{%")]
 ];
 
 for (const [label, passed] of expectations) {
@@ -52,10 +60,18 @@ for (const match of index.matchAll(/(?:href|src)="(\/[^"#?]+)"/g)) {
   }
 }
 
+for (const match of englishIndex.matchAll(/(?:href|src)="(\/[^"#?]+)"/g)) {
+  const target = match[1];
+  if (target === "/" || target === "/en/") continue;
+  if (!existsSync(path.join(outputDir, target))) {
+    throw new Error(`Broken local URL in English HTML: ${target}`);
+  }
+}
+
 const zip = await readFile(path.join(outputDir, "assets/gihc-badge-75mm.zip"));
 if (zip[0] !== 0x50 || zip[1] !== 0x4b) {
   throw new Error("Badge download is not a ZIP file");
 }
 
-console.log("PASS: Eleventy build, HTML-indhold, links og assets er OK");
+console.log("PASS: Eleventy build, dansk og engelsk indhold, links og assets er OK");
 
