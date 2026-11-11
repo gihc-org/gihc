@@ -10,7 +10,7 @@
     "check": "npm run build && node scripts/check-build.mjs"
   },
   "devDependencies": {
-    "@11ty/eleventy": "3.1.7",
+    "@11ty/eleventy": "3.1.8",
     "js-yaml": "4.3.2"
   }
 }
